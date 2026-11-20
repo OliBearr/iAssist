@@ -1678,9 +1678,15 @@
     }
   };
 
-  // Boot Application
-  document.addEventListener('DOMContentLoaded', () => {
+  // Boot Application safely across standard, iframe, and Sandpack/Figma Code contexts
+  function bootApp() {
     State.init();
     UI.init();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootApp);
+  } else {
+    bootApp();
+  }
 })();

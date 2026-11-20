@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iAssist · ICT Assistance & Self-Service Support</title>
+  <title>iAssist Â· ICT Assistance & Self-Service Support</title>
   
   <!-- Inter Font as Specified on Elements Page -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,3494 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Master Stylesheet (Elements Page Design System) -->
-  <link rel="stylesheet" href="css/styles.css">
+    <style>
+/* ==========================================================================
+   iAssist â€” Design System & Master Stylesheet
+   Directly mapped from Figma "Elements" Page (Artboard: iAssist â€” Design System)
+   ========================================================================== */
+
+:root {
+  /* Core Brand Tokens (Exact from Elements Page) */
+  --color-primary: #303D82;              /* Primary actions, active tabs, buttons */
+  --color-primary-hover: #25316E;        /* Button hover state */
+  --color-primary-active: #1C2555;       /* Button active / pressed state */
+  --color-primary-text: #202B41;         /* Headings, titles, high-emphasis text */
+  --color-header-bg: #202B60;            /* Dark header chrome surface */
+  --color-supporting-text: #66718A;      /* Hints, placeholders, inactive tabs, captions */
+  --color-accent-tint: #EDF0FB;          /* Pill active fills, unread card bg, highlights */
+  --color-control-border: #D6DCF1;       /* Input borders, chip outlines, search border */
+  --color-page-bg: #F5F7FB;              /* Application canvas / viewport background */
+  --color-card-border: #DFE4EE;          /* Container borders, dividers, card strokes */
+  --color-surface: #FFFFFF;              /* Card, modal, input background */
+  --color-header-supporting: #C2CAE8;    /* Inactive nav text on dark header */
+
+  /* Semantic Status Tokens (Exact from Elements Page) */
+  --status-success-text: #14796E;
+  --status-success-bg: #EBFBF2;
+  --status-success-border: #14796E;
+
+  --status-warning-text: #966218;
+  --status-warning-bg: #FFF5E3;
+  --status-warning-border: #966218;
+
+  --status-info-text: #1B5EAA;
+  --status-info-bg: #EBF3FB;
+  --status-info-border: #1B5EAA;
+
+  /* Typography Scale Tokens (Exact from Elements Page) */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --text-display-size: 28px;
+  --text-display-weight: 700;
+  --text-display-lh: 36px;
+  --text-display-tracking: -0.02em;
+
+  --text-screen-title-size: 22px;
+  --text-screen-title-weight: 600;
+  --text-screen-title-lh: 30px;
+  --text-screen-title-tracking: -0.01em;
+
+  --text-section-header-size: 18px;
+  --text-section-header-weight: 600;
+  --text-section-header-lh: 26px;
+  --text-section-header-tracking: -0.01em;
+
+  --text-card-header-size: 16px;
+  --text-card-header-weight: 600;
+  --text-card-header-lh: 22px;
+
+  --text-body-size: 14px;
+  --text-body-weight: 400;
+  --text-body-lh: 21px;
+
+  --text-form-value-size: 14px;
+  --text-form-value-weight: 500;
+  --text-form-value-lh: 20px;
+
+  --text-hint-size: 12px;
+  --text-hint-weight: 400;
+  --text-hint-lh: 17px;
+
+  --text-caption-size: 11px;
+  --text-caption-weight: 500;
+  --text-caption-lh: 16px;
+  --text-caption-tracking: 0.01em;
+
+  --text-btn-size: 14px;
+  --text-btn-weight: 600;
+  --text-btn-lh: 20px;
+
+  --text-nav-size: 12px;
+  --text-nav-weight: 500;
+  --text-nav-lh: 16px;
+  --text-nav-tracking: 0.01em;
+
+  /* Corner Radii Tokens (Exact from Section E) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-badge: 10px;
+  --radius-card: 12px;
+  --radius-hero: 16px;
+  --radius-pill: 100px;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 3px rgba(32, 43, 65, 0.05);
+  --shadow-md: 0 4px 12px rgba(32, 43, 65, 0.08);
+  --shadow-lg: 0 12px 24px -4px rgba(32, 43, 65, 0.12);
+  --shadow-device: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.08);
+
+  /* Device Dimensions */
+  --device-width: 390px;
+  --device-height: 844px;
+  --transition-default: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Theme Support (Preserving exact token semantic mappings) */
+[data-theme="dark"] {
+  --color-primary: #5364C2;
+  --color-primary-hover: #697AE0;
+  --color-primary-active: #4050A6;
+  --color-primary-text: #F1F4FA;
+  --color-header-bg: #141A33;
+  --color-supporting-text: #9BA6BF;
+  --color-accent-tint: #1C2442;
+  --color-control-border: #2C3759;
+  --color-page-bg: #0F1322;
+  --color-card-border: #232D48;
+  --color-surface: #182035;
+  --color-header-supporting: #A0ACCD;
+
+  --status-success-bg: rgba(20, 121, 110, 0.18);
+  --status-warning-bg: rgba(150, 98, 24, 0.18);
+  --status-info-bg: rgba(27, 94, 170, 0.18);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5);
+  --shadow-device: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family);
+  background-color: var(--color-page-bg);
+  color: var(--color-primary-text);
+  line-height: var(--text-body-lh);
+  font-size: var(--text-body-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Portfolio Presentation Bar (Top Controls)
+   ========================================================================== */
+.presentation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--color-header-bg);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: var(--text-btn-size);
+}
+
+.presentation-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.presentation-badge {
+  font-size: var(--text-caption-size);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.presentation-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.view-mode-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  gap: 2px;
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  color: var(--color-header-supporting);
+  font-size: var(--text-hint-size);
+  font-weight: 500;
+  transition: var(--transition-default);
+}
+
+.view-mode-btn:hover {
+  color: #FFFFFF;
+}
+
+.view-mode-btn.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Responsive Desktop Dimension Toolbar in Presentation Bar */
+.responsive-dimension-toolbar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-default);
+}
+
+.responsive-dimension-toolbar.visible {
+  display: flex;
+}
+
+.dim-input-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-header-supporting);
+}
+
+.dim-input-group input[type="number"] {
+  width: 58px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #FFFFFF;
+  padding: 3px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: var(--transition-default);
+  -moz-appearance: textfield;
+}
+
+.dim-input-group input[type="number"]::-webkit-outer-spin-button,
+.dim-input-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dim-input-group input[type="number"]:focus {
+  border-color: #697AE0;
+  box-shadow: 0 0 0 2px rgba(105, 122, 224, 0.3);
+}
+
+.dim-separator {
+  color: var(--color-header-supporting);
+  font-size: 11px;
+  user-select: none;
+}
+
+.dim-slider-group {
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}
+
+.dim-slider-group input[type="range"] {
+  width: 90px;
+  height: 4px;
+  accent-color: #697AE0;
+  cursor: pointer;
+}
+
+.dim-presets-group {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: 8px;
+  margin-left: 4px;
+}
+
+.preset-pill-btn {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-header-supporting);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
+  transition: var(--transition-default);
+}
+
+.preset-pill-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.preset-pill-btn.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.presentation-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-hint-size);
+  font-weight: 500;
+  transition: var(--transition-default);
+}
+
+.presentation-action-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ==========================================================================
+   Device Simulator Frame (Mobile & Tablet Mockup)
+   ========================================================================== */
+.viewport-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 54px);
+  padding: 24px 16px 40px;
+  transition: var(--transition-default);
+}
+
+/* Mode: Mobile (Matches Figma Frame 390px Ã— 844px) */
+.viewport-wrapper[data-mode="mobile"] .app-viewport {
+  width: var(--device-width);
+  min-height: var(--device-height);
+  max-height: 92vh;
+  border-radius: 44px;
+  box-shadow: var(--shadow-device);
+  border: 12px solid #1E293B;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+}
+
+/* Mode: Tablet */
+.viewport-wrapper[data-mode="tablet"] .app-viewport {
+  width: 768px;
+  min-height: 940px;
+  max-height: 92vh;
+  border-radius: 32px;
+  box-shadow: var(--shadow-device);
+  border: 14px solid #1E293B;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+}
+
+/* Mode: Responsive Desktop (Interactive Desktop Window with Adjustable W & H) */
+.viewport-wrapper[data-mode="responsive"] {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 54px);
+  padding: 24px 16px 40px;
+  overflow: auto;
+  background-color: var(--color-page-bg);
+  transition: var(--transition-default);
+}
+
+.viewport-wrapper[data-mode="responsive"] .app-viewport {
+  width: 1440px;
+  height: 900px;
+  max-width: calc(100vw - 32px);
+  min-width: 360px;
+  min-height: 480px;
+  border-radius: 12px;
+  box-shadow: 0 25px 65px -15px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+[data-theme="dark"] .viewport-wrapper[data-mode="responsive"] .app-viewport {
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Hardware Notch for Mobile Mode */
+.device-hardware-bar {
+  display: none;
+}
+
+.viewport-wrapper[data-mode="mobile"] .device-hardware-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px 6px;
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  user-select: none;
+}
+
+.notch-island {
+  width: 110px;
+  height: 24px;
+  background: #000;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+}
+
+.device-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.device-home-indicator {
+  display: none;
+}
+
+.viewport-wrapper[data-mode="mobile"] .device-home-indicator {
+  display: block;
+  width: 130px;
+  height: 4px;
+  background-color: var(--color-supporting-text);
+  border-radius: 4px;
+  margin: 8px auto 6px;
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   Application Shell: Header Bar
+   Exact Logo & Branding from Elements Page (40x40 Badge + Wordmark)
+   ========================================================================== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  background-color: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 0 0 0 18px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-card-border);
+  transition: var(--transition-default);
+  overflow: hidden;
+  min-height: 60px;
+}
+
+/* Exact Logo Lockup from Figma Prototype & Photo sample.png */
+.brand-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  padding: 6px 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+/* The actual wrench asset with chip forming the letter "i" */
+.brand-wrench-icon {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: -3px;
+  margin-right: -1px;
+  display: inline-block;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.06));
+}
+
+.brand-assist-text {
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: #26437A;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: inline-block;
+}
+
+[data-theme="dark"] .brand-assist-text {
+  color: #798EE6;
+}
+
+[data-theme="dark"] .brand-wrench-icon {
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.4));
+}
+
+/* Diagonal Header Wedge on Right (Exact from Photo sample.png) */
+.header-navy-wedge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #172449;
+  padding: 6px 18px 6px 36px;
+  clip-path: polygon(24px 0%, 100% 0%, 100% 100%, 0% 100%);
+  margin-left: auto;
+}
+
+.wedge-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  color: #FFFFFF;
+  position: relative;
+  transition: var(--transition-default);
+}
+
+.wedge-action-item:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.wedge-icon-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+}
+
+.wedge-icon-box svg {
+  width: 20px;
+  height: 20px;
+  stroke: #FFFFFF;
+}
+
+.wedge-badge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  background-color: #FFFFFF;
+  color: #172449;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.wedge-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid #FFFFFF;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wedge-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #E2E8F0;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+/* Main Scrollable Content Area */
+.app-content-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 18px 20px 28px;
+  background-color: var(--color-page-bg);
+  scroll-behavior: smooth;
+}
+
+/* Responsive Desktop Layout Enhancements */
+.viewport-wrapper[data-mode="responsive"] .app-content-body {
+  padding: 32px 48px 60px;
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Bottom Navigation Dock (Exact Mobile 92px Spec from Section 6 & 7)
+   ========================================================================== */
+.app-bottom-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 80;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-card-border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 12px 14px;
+  min-height: 72px;
+}
+
+.nav-tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-supporting-text);
+  font-size: var(--text-nav-size);
+  font-weight: var(--text-nav-weight);
+  letter-spacing: var(--text-nav-tracking);
+  transition: var(--transition-default);
+  position: relative;
+  min-width: 60px;
+}
+
+.nav-tab-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.75;
+  transition: var(--transition-default);
+}
+
+.nav-tab-btn:hover {
+  color: var(--color-primary);
+}
+
+.nav-tab-btn.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-tab-btn.active svg {
+  stroke-width: 2.25;
+  transform: translateY(-2px);
+}
+
+.nav-tab-badge {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+}
+
+
+
+/* ==========================================================================
+   View Container & Navigation Sub-headers
+   ========================================================================== */
+.view-screen {
+  display: none;
+  animation: fadeIn 200ms ease-out forwards;
+}
+
+.view-screen:not(.active) {
+  display: none !important;
+}
+
+.view-screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  padding: 4px 6px;
+  border-radius: var(--radius-xs);
+  transition: var(--transition-default);
+  cursor: pointer;
+}
+
+.back-button-link:hover {
+  background-color: var(--color-accent-tint);
+  transform: translateX(-3px);
+}
+
+.screen-header-block {
+  margin-bottom: 20px;
+}
+
+.screen-title {
+  font-size: var(--text-screen-title-size);
+  font-weight: var(--text-screen-title-weight);
+  line-height: var(--text-screen-title-lh);
+  letter-spacing: var(--text-screen-title-tracking);
+  color: var(--color-primary-text);
+  margin-bottom: 6px;
+}
+
+.screen-subtitle {
+  font-size: var(--text-body-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-body-lh);
+}
+
+/* ==========================================================================
+   Home Screen Specifics (Node 19:20105)
+   ========================================================================== */
+.hero-greeting-box {
+  background: linear-gradient(135deg, #202B60 0%, #303D82 100%);
+  border-radius: var(--radius-hero);
+  padding: 24px 22px;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-welcome-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: var(--text-screen-title-size);
+  font-weight: 700;
+  line-height: var(--text-screen-title-lh);
+  margin-bottom: 6px;
+}
+
+.hero-desc {
+  font-size: var(--text-body-size);
+  color: var(--color-header-supporting);
+  line-height: 1.45;
+}
+
+/* Exact Search Bar from Elements Page */
+.search-container {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-supporting-text);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 42px 0 44px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-control-border);
+  background-color: var(--color-surface);
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-default);
+}
+
+.search-input::placeholder {
+  color: var(--color-supporting-text);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(48, 61, 130, 0.15);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  color: var(--color-supporting-text);
+  display: none;
+  padding: 4px;
+  font-size: 16px;
+  border-radius: var(--radius-pill);
+}
+
+.search-clear-btn:hover {
+  color: var(--color-primary-text);
+  background-color: var(--color-page-bg);
+}
+
+/* Search Dropdown */
+.search-results-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  z-index: 90;
+  max-height: 320px;
+  overflow-y: auto;
+  display: none;
+}
+
+.search-results-dropdown.visible {
+  display: block;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-card-border);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--color-accent-tint);
+}
+
+.search-result-title {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+.search-result-category {
+  font-size: var(--text-caption-size);
+  color: var(--color-supporting-text);
+}
+
+/* Category Grid (2x2) */
+.section-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-heading {
+  font-size: var(--text-section-header-size);
+  font-weight: var(--text-section-header-weight);
+  color: var(--color-primary-text);
+  letter-spacing: var(--text-section-header-tracking);
+  flex: 1;
+  min-width: 0;
+}
+
+.section-link {
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* Category Card from Elements Page Spec */
+.category-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.category-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.category-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-tint);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.category-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  line-height: var(--text-card-header-lh);
+}
+
+.category-description {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-hint-lh);
+}
+
+/* Active Ticket Snapshot Card */
+.active-ticket-banner {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.active-ticket-banner:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-accent-tint);
+}
+
+.ticket-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ticket-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  animation: pulseDot 1.8s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(48, 61, 130, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(48, 61, 130, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(48, 61, 130, 0); }
+}
+
+.ticket-banner-title {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+/* Secondary CTA Card ("Need More Help?" from Section 5) */
+.cta-banner-card {
+  background-color: var(--color-accent-tint);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-banner-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+}
+
+.cta-banner-desc {
+  font-size: var(--text-body-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-body-lh);
+}
+
+/* Exact Buttons from Elements Page */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-btn-size);
+  font-weight: var(--text-btn-weight);
+  line-height: var(--text-btn-lh);
+  transition: var(--transition-default);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-active);
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-btn-size);
+  font-weight: var(--text-btn-weight);
+  line-height: var(--text-btn-lh);
+  transition: var(--transition-default);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-page-bg);
+  border-color: var(--color-primary);
+}
+
+/* Filter Chips (Exact from Elements Page) */
+.chip-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+  scrollbar-width: none;
+}
+
+.chip-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.chip-btn {
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  color: var(--color-supporting-text);
+  font-size: var(--text-hint-size);
+  font-weight: 500;
+  transition: var(--transition-default);
+}
+
+.chip-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.chip-btn.active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Guide Cards List (Category View)
+   ========================================================================== */
+.guides-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.guide-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.guide-card:hover {
+  border-color: var(--color-primary);
+  transform: translateX(3px);
+  box-shadow: var(--shadow-md);
+}
+
+.guide-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.guide-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-pill {
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.badge-popular {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.badge-steps {
+  background-color: var(--color-accent-tint);
+  color: var(--color-supporting-text);
+}
+
+.guide-card-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  line-height: var(--text-card-header-lh);
+}
+
+.guide-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+}
+
+.guide-arrow {
+  color: var(--color-supporting-text);
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  transition: var(--transition-default);
+}
+
+.guide-card:hover .guide-arrow {
+  color: var(--color-primary);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Guide Preview Screen
+   ========================================================================== */
+.preview-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background-color: var(--color-accent-tint);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.section-block-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.block-card-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prerequisite-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.steps-summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.step-index-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-tint);
+  color: var(--color-primary);
+  font-size: var(--text-hint-size);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-summary-text {
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Step-by-Step Interactive Wizard (Screen 4)
+   ========================================================================== */
+.wizard-progress-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.wizard-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-supporting-text);
+  margin-bottom: 8px;
+}
+
+.wizard-progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-page-bg);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.wizard-progress-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: width var(--transition-default);
+}
+
+.step-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-badge {
+  display: inline-block;
+  background-color: var(--color-accent-tint);
+  color: var(--color-primary);
+  font-size: var(--text-caption-size);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.step-title {
+  font-size: var(--text-section-header-size);
+  font-weight: var(--text-section-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 8px;
+  line-height: var(--text-section-header-lh);
+}
+
+.step-instruction {
+  font-size: var(--text-body-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-body-lh);
+  margin-bottom: 16px;
+}
+
+/* Interactive Simulators */
+.simulator-box {
+  background-color: var(--color-page-bg);
+  border: 1px dashed var(--color-control-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.simulator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sim-label {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+.toggle-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch-label {
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-supporting-text);
+}
+
+.ios-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.ios-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ios-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E1;
+  transition: 0.24s;
+  border-radius: 34px;
+}
+
+.ios-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.24s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .ios-slider {
+  background-color: var(--color-primary);
+}
+
+input:checked + .ios-slider:before {
+  transform: translateX(22px);
+}
+
+.sim-status-feedback {
+  font-size: var(--text-hint-size);
+  font-weight: 500;
+  color: var(--color-supporting-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+}
+
+.network-list-sim {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.network-sim-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.network-sim-item:hover, .network-sim-item.selected {
+  border-color: var(--color-primary);
+  background: var(--color-accent-tint);
+}
+
+.network-sim-name {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.network-sim-action {
+  font-size: var(--text-caption-size);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.terminal-box {
+  background: #141A33;
+  color: #798EE6;
+  font-family: Consolas, Monaco, monospace;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-hint-size);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.copy-cmd-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-size: var(--text-caption-size);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+}
+
+.wizard-nav-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.wizard-nav-controls button {
+  flex: 1;
+}
+
+/* Resolution Feedback Card */
+.resolution-feedback-card {
+  background-color: var(--color-accent-tint);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.resolution-feedback-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 6px;
+}
+
+.resolution-feedback-desc {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+  margin-bottom: 16px;
+}
+
+.resolution-buttons-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-resolve-yes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  border: 1px solid var(--status-success-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-btn-size);
+  font-weight: var(--text-btn-weight);
+  transition: var(--transition-default);
+}
+
+.btn-resolve-yes:hover {
+  background-color: #D6F6E4;
+}
+
+.btn-resolve-no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-btn-size);
+  font-weight: var(--text-btn-weight);
+  transition: var(--transition-default);
+}
+
+.btn-resolve-no:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ==========================================================================
+   Problem Resolved Screen (Node 43:539)
+   ========================================================================== */
+.resolved-success-card {
+  background-color: var(--status-success-bg);
+  border: 1.5px solid var(--status-success-border);
+  border-radius: var(--radius-card);
+  padding: 28px 22px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.success-check-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-pill);
+  background-color: var(--status-success-text);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(20, 121, 110, 0.25);
+}
+
+.resolved-title {
+  font-size: var(--text-screen-title-size);
+  font-weight: var(--text-screen-title-weight);
+  color: var(--status-success-text);
+  margin-bottom: 8px;
+}
+
+.resolved-text {
+  font-size: var(--text-body-size);
+  color: var(--status-success-text);
+  line-height: var(--text-body-lh);
+  margin-bottom: 20px;
+}
+
+.rating-box {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #CBD5E1;
+}
+
+.rating-star.active {
+  color: #F59E0B;
+}
+
+/* ==========================================================================
+   No Matching Solutions / Empty State (Node 43:597)
+   ========================================================================== */
+.empty-state-card {
+  background-color: var(--color-surface);
+  border: 1.5px dashed var(--color-control-border);
+  border-radius: var(--radius-card);
+  padding: 36px 24px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.empty-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-tint);
+  border: 1px solid var(--color-control-border);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.empty-badge-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-tint);
+  color: var(--color-primary);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: var(--text-section-header-size);
+  font-weight: var(--text-section-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 8px;
+}
+
+.empty-desc {
+  font-size: var(--text-body-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-body-lh);
+  max-width: 380px;
+  margin: 0 auto 24px;
+}
+
+/* ==========================================================================
+   Request ICT Assistance Form (Node 19:20627 & Elements Page)
+   ========================================================================== */
+.advisory-notice-box {
+  background-color: var(--status-info-bg);
+  border: 1px solid var(--status-info-border);
+  border-left: 4px solid var(--status-info-text);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.advisory-icon {
+  color: var(--status-info-text);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.advisory-text {
+  font-size: var(--text-hint-size);
+  color: var(--color-primary-text);
+  line-height: 1.4;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-label {
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+.form-label-hint {
+  font-size: var(--text-caption-size);
+  font-weight: 400;
+  color: var(--color-supporting-text);
+}
+
+/* Exact Inputs from Elements Page */
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-control-border);
+  background-color: var(--color-surface);
+  font-size: var(--text-form-value-size);
+  font-weight: var(--text-form-value-weight);
+  color: var(--color-primary-text);
+  transition: var(--transition-default);
+}
+
+.form-textarea {
+  height: auto;
+  min-height: 100px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--color-supporting-text);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(48, 61, 130, 0.15);
+}
+
+.form-input[readonly] {
+  background-color: var(--color-page-bg);
+  color: var(--color-supporting-text);
+  cursor: not-allowed;
+}
+
+.char-counter {
+  font-size: var(--text-caption-size);
+  color: var(--color-supporting-text);
+  text-align: right;
+  margin-top: 3px;
+}
+
+.checkbox-options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.checkbox-option-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-control-border);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: var(--transition-default);
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+}
+
+.checkbox-option-card:hover {
+  border-color: var(--color-primary);
+}
+
+.checkbox-option-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+}
+
+/* Exact Dropzone from Elements Page */
+.file-upload-dropzone {
+  border: 2px dashed var(--color-control-border);
+  border-radius: var(--radius-badge);
+  padding: 20px 16px;
+  text-align: center;
+  background-color: var(--color-page-bg);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.file-upload-dropzone:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-accent-tint);
+}
+
+.dropzone-icon {
+  margin: 0 auto 8px;
+  color: var(--color-primary);
+}
+
+.dropzone-label {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin-bottom: 2px;
+}
+
+.dropzone-sub {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+}
+
+.uploaded-files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.uploaded-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-hint-size);
+}
+
+.file-remove-btn {
+  color: #DC2626;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Request Status Tracker (Screen 8)
+   ========================================================================== */
+.ticket-ref-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ticket-ref-badge {
+  font-family: Consolas, Monaco, monospace;
+  font-size: var(--text-section-header-size);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Status Chips from Elements Page */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-caption-weight);
+  text-transform: uppercase;
+}
+
+.status-chip.pending, .status-chip.assigned {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.status-chip.resolved {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.status-chip.open {
+  background-color: var(--status-info-bg);
+  color: var(--status-info-text);
+}
+
+/* Stepper Timeline */
+.tracker-stepper-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stepper-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.stepper-timeline::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 11px;
+  width: 2px;
+  background-color: var(--color-card-border);
+}
+
+.stepper-stage-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.stage-bullet {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-control-border);
+  color: var(--color-supporting-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-caption-size);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.stepper-stage-item.completed .stage-bullet {
+  background-color: var(--status-success-text);
+  border-color: var(--status-success-text);
+  color: #FFFFFF;
+}
+
+.stepper-stage-item.active .stage-bullet {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(48, 61, 130, 0.15);
+}
+
+.stage-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-title {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+.stage-meta {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+}
+
+.updates-log-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.updates-log-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 12px;
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.update-bubble {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-page-bg);
+  border: 1px solid var(--color-card-border);
+  font-size: var(--text-body-size);
+}
+
+.update-bubble.from-tech {
+  background-color: var(--color-accent-tint);
+  border-color: var(--color-control-border);
+}
+
+.update-header-line {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: var(--text-hint-size);
+  margin-bottom: 4px;
+}
+
+.reply-input-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.reply-input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-control-border);
+  background-color: var(--color-surface);
+  font-size: var(--text-body-size);
+}
+
+.reply-send-btn {
+  padding: 0 16px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--text-btn-size);
+}
+
+/* ==========================================================================
+   My Support Requests List (Screen 9)
+   ========================================================================== */
+.requests-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.request-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.request-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.request-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.request-ref {
+  font-family: Consolas, Monaco, monospace;
+  font-size: var(--text-caption-size);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.request-card-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+}
+
+.request-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+  border-top: 1px solid var(--color-card-border);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Frequently Asked Questions (Screen 10 - Node 19:20987)
+   ========================================================================== */
+.faq-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.faq-accordion-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: var(--transition-default);
+}
+
+.faq-accordion-item.open {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-trigger-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  text-align: left;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  background: none;
+}
+
+.faq-chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--color-supporting-text);
+  transition: transform var(--transition-default);
+  flex-shrink: 0;
+}
+
+.faq-accordion-item.open .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq-content-drawer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--color-page-bg);
+  border-top: 1px solid transparent;
+}
+
+.faq-accordion-item.open .faq-content-drawer {
+  max-height: 380px;
+  border-top-color: var(--color-card-border);
+}
+
+.faq-body-text {
+  padding: 14px 16px 18px;
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+  line-height: var(--text-body-lh);
+}
+
+/* ==========================================================================
+   Notifications Center (Screen 11 & Elements Page Spec)
+   ========================================================================== */
+.notifications-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mark-read-btn {
+  font-size: var(--text-hint-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.notifications-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.notification-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+  transition: var(--transition-default);
+  position: relative;
+}
+
+.notification-card.unread {
+  background-color: var(--color-accent-tint);
+  border-left: 3px solid var(--color-primary);
+}
+
+.notification-card.unread::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+}
+
+.notif-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--color-page-bg);
+  color: var(--color-supporting-text);
+}
+
+.notification-card.unread .notif-icon-box {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.notif-content {
+  flex: 1;
+}
+
+.notif-title {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin-bottom: 3px;
+}
+
+.notif-desc {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+  line-height: var(--text-hint-lh);
+  margin-bottom: 4px;
+}
+
+.notif-timestamp {
+  font-size: var(--text-caption-size);
+  color: var(--color-supporting-text);
+}
+
+/* ==========================================================================
+   Profile & Settings (Screen 12)
+   ========================================================================== */
+.profile-card-hero {
+  background: linear-gradient(135deg, var(--color-header-bg), var(--color-primary));
+  color: #FFFFFF;
+  border-radius: var(--radius-hero);
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar-large {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  border: 3px solid #FFFFFF;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profile-name {
+  font-size: var(--text-screen-title-size);
+  font-weight: var(--text-screen-title-weight);
+  margin-bottom: 2px;
+}
+
+.profile-id {
+  font-size: var(--text-hint-size);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.profile-badge-chip {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+}
+
+.settings-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.settings-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+  margin-bottom: 14px;
+}
+
+.toggle-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.toggle-setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-label-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-name {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+.setting-desc {
+  font-size: var(--text-hint-size);
+  color: var(--color-supporting-text);
+}
+
+/* ==========================================================================
+   Modals & Toast Feedback
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(32, 43, 65, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-default);
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform var(--transition-default);
+}
+
+.modal-backdrop.open .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.modal-title {
+  font-size: var(--text-card-header-size);
+  font-weight: var(--text-card-header-weight);
+  color: var(--color-primary-text);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-card-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: var(--color-page-bg);
+}
+
+/* Toast System */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast-message {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-text);
+  color: #FFFFFF;
+  font-size: var(--text-body-size);
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: slideToast 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-message.success {
+  background-color: var(--status-success-text);
+  border-color: var(--status-success-border);
+}
+
+@keyframes slideToast {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Desktop Window Chrome & Interactive Frame Controls
+   ========================================================================== */
+.desktop-window-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  min-height: 38px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%);
+  border-bottom: 1px solid var(--color-card-border);
+  padding: 0 14px;
+  user-select: none;
+  z-index: 90;
+  position: relative;
+}
+
+[data-theme="dark"] .desktop-window-bar {
+  background: linear-gradient(180deg, #1A2238 0%, #13192B 100%);
+  border-bottom-color: #232D48;
+}
+
+.viewport-wrapper[data-mode="responsive"] .desktop-window-bar {
+  display: flex;
+}
+
+.window-controls-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 70px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-close {
+  background-color: #FF5F56;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+
+.dot-min {
+  background-color: #FFBD2E;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+
+.dot-max {
+  background-color: #27C93F;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+
+.window-address-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-control-border);
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  color: var(--color-supporting-text);
+  box-shadow: var(--shadow-sm);
+  max-width: 360px;
+  width: 100%;
+}
+
+.window-address-bar svg {
+  stroke: var(--status-success-text);
+  flex-shrink: 0;
+}
+
+.address-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.window-dimension-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-supporting-text);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .window-dimension-tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-header-supporting);
+}
+
+/* Drag Resize Handles */
+.resize-handle {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  user-select: none;
+  touch-action: none;
+}
+
+.viewport-wrapper[data-mode="responsive"] .resize-handle {
+  display: block;
+}
+
+.resize-handle-right {
+  top: 0;
+  right: -5px;
+  width: 12px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resize-handle-right::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  right: 5px;
+  width: 3px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.resize-handle-right:hover::after,
+body.is-resizing .resize-handle-right::after {
+  background-color: var(--color-primary);
+}
+
+.resize-handle-bottom {
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  cursor: ns-resize;
+}
+
+.resize-handle-bottom::after {
+  content: '';
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 5px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.resize-handle-bottom:hover::after,
+body.is-resizing .resize-handle-bottom::after {
+  background-color: var(--color-primary);
+}
+
+.resize-handle-corner {
+  bottom: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  cursor: nwse-resize;
+  z-index: 101;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 3px;
+  color: var(--color-supporting-text);
+  border-radius: 0 0 12px 0;
+  transition: var(--transition-default);
+}
+
+.resize-handle-corner svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--color-supporting-text);
+  transition: stroke 0.2s ease, transform 0.2s ease;
+}
+
+.resize-handle-corner:hover {
+  background-color: rgba(48, 61, 130, 0.15);
+}
+
+.resize-handle-corner:hover svg,
+body.is-resizing .resize-handle-corner svg {
+  stroke: var(--color-primary);
+  transform: scale(1.15);
+}
+
+/* Disable transitions during interactive drag for 60fps tracking */
+body.is-resizing *,
+body.is-resizing .app-viewport {
+  transition: none !important;
+  user-select: none !important;
+  cursor: inherit !important;
+}
+
+/* ==========================================================================
+   Desktop Header & Navigation Components
+   ========================================================================== */
+.desktop-header-search {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  max-width: 440px;
+  margin: 0 20px;
+  background-color: var(--color-page-bg);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  transition: var(--transition-default);
+}
+
+.desktop-header-search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(48, 61, 130, 0.15);
+  background-color: var(--color-surface);
+}
+
+.desktop-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: var(--text-body-size);
+  color: var(--color-primary-text);
+}
+
+.desktop-header-nav {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.desktop-nav-link {
+  background: transparent;
+  border: none;
+  color: #C2CAE8;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: var(--transition-default);
+  text-decoration: none;
+}
+
+.desktop-nav-link:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.desktop-nav-link.active {
+  color: #FFFFFF;
+  background-color: #111C3A;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+}
+
+.desktop-nav-link .nav-count-pill {
+  background-color: #FFFFFF;
+  color: #172449;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  line-height: 16px;
+}
+
+.desktop-mini-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-desktop-sub {
+  display: none;
+}
+
+.search-inline-btn {
+  display: none;
+}
+
+.desktop-new-request-btn {
+  display: none;
+}
+
+.screen-header-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-page-bg);
+  border: 1px solid var(--color-card-border);
+  color: var(--color-primary-text);
+  position: relative;
+  transition: var(--transition-default);
+}
+
+.header-icon-btn:hover {
+  background-color: var(--color-accent-tint);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.header-icon-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 2px solid var(--color-surface);
+}
+
+.desktop-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 5px;
+  background-color: var(--color-page-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.desktop-user-pill:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-accent-tint);
+}
+
+.desktop-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-text);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Smooth Conversions: Desktop-to-Mobile Design Dynamics
+   Container Queries & Class-Based Responsive Architecture
+   ========================================================================== */
+.app-viewport {
+  container-type: inline-size;
+  container-name: appviewport;
+}
+
+/* Smooth layout element transitions */
+.category-grid,
+.app-header,
+.desktop-header-search,
+.desktop-header-nav,
+.header-navy-wedge,
+.app-bottom-nav,
+.app-content-body,
+.hero-greeting-box,
+#assistanceForm,
+#view-request-tracker,
+#view-guide-wizard {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- DESKTOP DYNAMICS: Class-Based (.app-viewport.is-desktop) --- */
+.app-viewport.is-desktop .app-header {
+  background-color: #172449 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 0 32px !important;
+  min-height: 64px !important;
+  align-items: center !important;
+}
+
+.app-viewport.is-desktop .brand-assist-text {
+  color: #FFFFFF !important;
+}
+
+.app-viewport.is-desktop .brand-wrench-icon {
+  filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+}
+
+.app-viewport.is-desktop .brand-desktop-sub {
+  display: block !important;
+  font-size: 8.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  color: #C2CAE8 !important;
+  text-transform: uppercase !important;
+  margin-top: 2px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.app-viewport.is-desktop .header-navy-wedge {
+  display: none !important;
+}
+
+.app-viewport.is-desktop .desktop-header-search {
+  display: none !important;
+}
+
+.app-viewport.is-desktop .desktop-header-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-left: auto !important;
+}
+
+.app-viewport.is-desktop .desktop-header-actions {
+  display: none !important;
+}
+
+.app-viewport.is-desktop .app-bottom-nav {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+.app-viewport.is-desktop .device-hardware-bar {
+  display: none !important;
+}
+
+.app-viewport.is-desktop .search-inline-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #202B60 !important;
+  color: #FFFFFF !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  cursor: pointer !important;
+  margin-left: 10px !important;
+  white-space: nowrap !important;
+  transition: var(--transition-default) !important;
+}
+
+.app-viewport.is-desktop .search-inline-btn:hover {
+  background-color: #172449 !important;
+}
+
+.app-viewport.is-desktop .desktop-new-request-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: #202B60 !important;
+  color: #FFFFFF !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 8px 18px !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: var(--transition-default) !important;
+}
+
+.app-viewport.is-desktop .desktop-new-request-btn:hover {
+  background-color: #172449 !important;
+}
+
+.app-viewport.is-desktop .category-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+}
+
+.app-viewport.is-desktop .app-content-body {
+  padding: 28px 48px 56px !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.app-viewport.is-desktop #assistanceForm {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px 24px !important;
+  align-items: start !important;
+}
+
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(1) { grid-column: 1 / 2; }
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(2) { grid-column: 2 / 3; }
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(3) { grid-column: 1 / 2; }
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(4) { grid-column: 2 / 3; }
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(5),
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(6),
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(7),
+.app-viewport.is-desktop #assistanceForm .form-group:nth-child(8),
+.app-viewport.is-desktop #assistanceForm #formSubmitBtn {
+  grid-column: 1 / -1 !important;
+}
+
+.app-viewport.is-desktop #view-guide-wizard.active {
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+.app-viewport.is-desktop #view-guide-wizard > .back-button-link,
+.app-viewport.is-desktop #view-guide-wizard > .wizard-progress-card {
+  grid-column: 1 / -1 !important;
+}
+
+.app-viewport.is-desktop #view-guide-wizard > .step-card,
+.app-viewport.is-desktop #view-guide-wizard > .wizard-nav-controls {
+  grid-column: 1 / 2 !important;
+}
+
+.app-viewport.is-desktop #view-guide-wizard > .resolution-feedback-card {
+  grid-column: 2 / 3 !important;
+  position: sticky !important;
+  top: 24px !important;
+}
+
+.app-viewport.is-desktop #view-request-tracker.active {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  gap: 20px 24px !important;
+  align-items: start !important;
+}
+
+.app-viewport.is-desktop #view-request-tracker > .back-button-link,
+.app-viewport.is-desktop #view-request-tracker > .ticket-ref-header,
+.app-viewport.is-desktop #view-request-tracker > .tracker-stepper-card {
+  grid-column: 1 / -1 !important;
+}
+
+.app-viewport.is-desktop #view-profile.active {
+  display: grid !important;
+  grid-template-columns: 320px 1fr !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+.app-viewport.is-desktop #view-profile > .back-button-link {
+  grid-column: 1 / -1 !important;
+}
+
+.app-viewport.is-desktop .requests-cards-stack {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 16px !important;
+}
+
+.app-viewport.is-desktop .wizard-step-card,
+.app-viewport.is-desktop .guide-preview-card {
+  padding: 28px 32px !important;
+}
+
+/* --- DESKTOP DYNAMICS: Container Query (min-width: 860px) --- */
+@container appviewport (min-width: 860px) {
+  .app-header {
+    background-color: #172449 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 0 32px !important;
+    min-height: 64px !important;
+    align-items: center !important;
+  }
+
+  .brand-assist-text {
+    color: #FFFFFF !important;
+  }
+
+  .brand-wrench-icon {
+    filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+  }
+
+  .brand-desktop-sub {
+    display: block !important;
+    font-size: 8.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    color: #C2CAE8 !important;
+    text-transform: uppercase !important;
+    margin-top: 2px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .header-navy-wedge {
+    display: none !important;
+  }
+
+  .desktop-header-search {
+    display: none !important;
+  }
+
+  .desktop-header-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-left: auto !important;
+  }
+
+  .desktop-header-actions {
+    display: none !important;
+  }
+
+  .app-bottom-nav {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+
+  .device-hardware-bar {
+    display: none !important;
+  }
+
+  .search-inline-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #202B60 !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    height: 44px !important;
+    padding: 0 24px !important;
+    border-radius: var(--radius-sm) !important;
+    border: none !important;
+    cursor: pointer !important;
+    margin-left: 10px !important;
+    white-space: nowrap !important;
+    transition: var(--transition-default) !important;
+  }
+
+  .search-inline-btn:hover {
+    background-color: #172449 !important;
+  }
+
+  .desktop-new-request-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background-color: #202B60 !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    border-radius: var(--radius-sm) !important;
+    border: none !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: var(--transition-default) !important;
+  }
+
+  .desktop-new-request-btn:hover {
+    background-color: #172449 !important;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .app-content-body {
+    padding: 28px 48px 56px !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  #assistanceForm {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 24px !important;
+    align-items: start !important;
+  }
+
+  #assistanceForm .form-group:nth-child(1) { grid-column: 1 / 2; }
+  #assistanceForm .form-group:nth-child(2) { grid-column: 2 / 3; }
+  #assistanceForm .form-group:nth-child(3) { grid-column: 1 / 2; }
+  #assistanceForm .form-group:nth-child(4) { grid-column: 2 / 3; }
+  #assistanceForm .form-group:nth-child(5),
+  #assistanceForm .form-group:nth-child(6),
+  #assistanceForm .form-group:nth-child(7),
+  #assistanceForm .form-group:nth-child(8),
+  #assistanceForm #formSubmitBtn {
+    grid-column: 1 / -1 !important;
+  }
+
+  #view-guide-wizard.active {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+  }
+
+  #view-guide-wizard > .back-button-link,
+  #view-guide-wizard > .wizard-progress-card {
+    grid-column: 1 / -1 !important;
+  }
+
+  #view-guide-wizard > .step-card,
+  #view-guide-wizard > .wizard-nav-controls {
+    grid-column: 1 / 2 !important;
+  }
+
+  #view-guide-wizard > .resolution-feedback-card {
+    grid-column: 2 / 3 !important;
+    position: sticky !important;
+    top: 24px !important;
+  }
+
+  #view-request-tracker.active {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 20px 24px !important;
+    align-items: start !important;
+  }
+
+  #view-request-tracker > .back-button-link,
+  #view-request-tracker > .ticket-ref-header,
+  #view-request-tracker > .tracker-stepper-card {
+    grid-column: 1 / -1 !important;
+  }
+
+  #view-profile.active {
+    display: grid !important;
+    grid-template-columns: 320px 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+  }
+
+  #view-profile > .back-button-link {
+    grid-column: 1 / -1 !important;
+  }
+
+  .requests-cards-stack {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .wizard-step-card,
+  .guide-preview-card {
+    padding: 28px 32px !important;
+  }
+}
+
+/* --- MOBILE & TABLET DYNAMICS (Width < 860px) --- */
+.app-viewport.is-mobile .desktop-header-search,
+.app-viewport.is-tablet .desktop-header-search {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .desktop-header-nav,
+.app-viewport.is-tablet .desktop-header-nav {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .desktop-header-actions,
+.app-viewport.is-tablet .desktop-header-actions {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .brand-desktop-sub,
+.app-viewport.is-tablet .brand-desktop-sub {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .header-navy-wedge,
+.app-viewport.is-tablet .header-navy-wedge {
+  display: flex !important;
+}
+
+.app-viewport.is-mobile .app-bottom-nav,
+.app-viewport.is-tablet .app-bottom-nav {
+  display: flex !important;
+}
+
+.app-viewport.is-mobile .search-inline-btn,
+.app-viewport.is-tablet .search-inline-btn {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .desktop-new-request-btn,
+.app-viewport.is-tablet .desktop-new-request-btn {
+  display: none !important;
+}
+
+.app-viewport.is-mobile .category-grid,
+.app-viewport.is-tablet .category-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+}
+
+.app-viewport.is-mobile #assistanceForm,
+.app-viewport.is-tablet #assistanceForm {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.app-viewport.is-mobile #view-request-tracker.active,
+.app-viewport.is-tablet #view-request-tracker.active {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.app-viewport.is-mobile #view-guide-wizard.active,
+.app-viewport.is-tablet #view-guide-wizard.active {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.app-viewport.is-mobile .requests-cards-stack,
+.app-viewport.is-tablet .requests-cards-stack {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* --- MEDIUM DESKTOP / LAPTOP SCALING (860px to 1150px) --- */
+@container appviewport (min-width: 860px) and (max-width: 1150px) {
+  .app-header {
+    padding: 0 16px !important;
+  }
+  .brand-desktop-sub {
+    font-size: 8px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .desktop-header-nav {
+    gap: 3px !important;
+  }
+  .desktop-nav-link {
+    padding: 6px 8px !important;
+    font-size: 12.5px !important;
+    gap: 4px !important;
+  }
+}
+
+  </style>
   <link rel="icon" type="image/png" href="assets/iAssist - Transparent Background.png">
 </head>
 <body>
@@ -28,14 +3515,14 @@
     <div class="presentation-controls">
       <!-- Device Viewport Mode Switcher -->
       <div class="view-mode-group" role="group" aria-label="Viewport Switcher">
-        <button class="view-mode-btn" data-mode="mobile" title="Mobile Frame (Figma 390px × 844px)">
+        <button class="view-mode-btn" data-mode="mobile" title="Mobile Frame (Figma 390px Ã— 844px)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
           </svg>
           <span>Mobile (390px)</span>
         </button>
-        <button class="view-mode-btn" data-mode="tablet" title="Tablet View (768px × 1024px)">
+        <button class="view-mode-btn" data-mode="tablet" title="Tablet View (768px Ã— 1024px)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
@@ -59,7 +3546,7 @@
           <input type="number" id="dimWidthInput" value="1440" min="360" max="1600" step="10">
           <span>px</span>
         </div>
-        <span class="dim-separator">×</span>
+        <span class="dim-separator">Ã—</span>
         <div class="dim-input-group">
           <label for="dimHeightInput">H:</label>
           <input type="number" id="dimHeightInput" value="900" min="500" max="1200" step="10">
@@ -115,9 +3602,9 @@
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
-          <span class="address-text">iassist.campus.edu · ICT Self-Service Platform</span>
+          <span class="address-text">iassist.campus.edu Â· ICT Self-Service Platform</span>
         </div>
-        <div class="window-dimension-tag" id="windowDimensionTag">1440 × 900 px</div>
+        <div class="window-dimension-tag" id="windowDimensionTag">1440 Ã— 900 px</div>
       </div>
       
       <!-- Mobile Hardware Status Bar (Realistic UI) -->
@@ -157,7 +3644,7 @@
           <!-- Exact Visible Brand Logo Lockup from Figma -->
           <div class="brand-wrapper" id="headerBrandLogo" title="iAssist Home">
             <div class="brand-logo-lockup">
-              <img src="assets/iAssist - Icon.png" alt="iAssist Logo Icon" class="brand-wrench-icon">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAEgCAYAAABy0Me7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABM7SURBVHhe7Z17lCRVfcc9OTk5gIIkLKC7y073rY1PJEFkl5n63c0AIfg4eo4xCSYhESGiAts9i7CwuzP3XgyokYdG4gNFQREQNSAYwAcR45NoonkgAts9C8hLiESC0r3rH5NzZ6qx5nurZ7pnurpu3fl9zvn809Vd9XvMo7rq1r3PehbDMAzDMIzn7Llv4uWt6fopu3ed8SLc1m5MvKrVmDhp5uF3rEq/PvOTLXvvnq6fuLtRPyH9+uy2BzevbTU3n9zaNTGO2xiPaDfqd7ab9Zl2s/bl9Ou22XOv12d2N2vb0tt2N+tv6Gz71X0To+lt7Ub90s629OuMZ7Qb9aZtUqtZ/1b69ZnGmYd0Gthq1M5Pb7O/7Z1t7en6celt7Wb9cm58CeDGr1C48SsUbvwKpdWsX9Nq1L5uT8rSr8803naQfX3W6fop6W222Z1te5pnvGLetkb97M629OsMwzBM7sw0T31uu1l/T7tZu/mZP+FD1F4naDfr75uZPn0EY2NyYmbXac9rN+t3P3NCVqCtZv2nuxu1QzFGJgfazdpt2ICCvRtjZAbMrxoTcUbhC9feA8BYmQHSbtbOxKJ7YaN2GcbKDJDWdO2dTtH98LMYKzNAWs36eRlFt79xT9orcPb2aV7O3cWrTTvHnrsaeB3GygyQro1v1m7C9+ZBu1m72D02N35Z7N655aXtZu0JLGq7Wbun855ujW816p+cv7d8sPfy8djY+HajfiNubzdrrXajdur8vTGztHfVj3cLNlu0vhqfXFxx3rNUW83a/Z19L73xdgBI/YrOe5gUM4+e9ex2o15rNWsmbXu6fkbnPWVo/O5G7Y2Yw+5GbWtr10Sl8x6mT7qd1c9vfP0ruH05thr1Bzr77tZ4PqvPGW78CoUbHyh77tt8OH5/3jO9eUNne0n+xx/q5LCrvrGznQFazdqxWNA5U2f1JfiN73ZW327WL+m8h0nRU+NL8BvfvfG193fewwDB/qlP5cAsgTL8qWdygBu/QuHGB8jM41v3bTfrW/ByZxCXbJv1c3hgZhfa05tfiwWdM4yzer5J04Xd0/XD7IAKLFggjX+63ay9rfMepk/4f/wKhRu/QuHGr1C48QEyc9/E89vN2vX4nFqrWb+q854ynNy1GvULMId2o3Zrq1E7uvMeJkW7WXs1FnTOPs/qG7ULsfDL9Nff0XtofJezevsD9OnOe5gUcw9DLv83Pk96aXz2b3z9llZj4pj5e2N6puv/+Gb9+/jePGg1a1fjsRP5f3yedGv8rI36l/BS6YC91jkmN344LNj4YuXG50l7unZ6RtGLt1H7AMbKDJA9uzYf5RTdA/dM1/4KY2UGjD3Lx8IXaatR/w7GyOSEnaQQG1CE9lbrzGOnPQfjY5bAmg3bDoikeq8gdV8k9U+iWF+A77HMPHzqPnua9SNxYOMwtLNcz+zcvB/GhAhSfx6Rvi6S+tKqNIfhdiahGpszItJPRlLPzFf9AN/rM5Vxs1ck1RcwDyH1tYeMTUb4/hVLJKfiiNSdWKh5RYvNvOlGfSaS6myMf56kL6tu3H4wfm7FsHZ0x5pIqs84hcmSTA0/j/gyibEg9Q0nftenqqRW3reBKqkdQqpfZBQkU0HK4D4QXxofSXUXxt9NQfof1280i54vlJ41G81aQfqHWIDF7KXx9oRrZtfE/nimPTNjfmP29VlP2gu2/dYz22bMb87b9vCp+3S2pV9fDEHqbox/QUk/JGJNuJ9gqMTmqEiq/3ES70EhjcL9+UrfjU+sknoH7qv02P9nmGh/qincp68I0ve48fcoqVtWxVv3xX2WEkH6g06C/UpmEvfrK0Kqe534+1CQ/vGI3P583G9pqIyb/Xs8w11UezKI+/eVSOqdGH//qgcqo8ZZP8971tG5v93P2e1ilqrxpBoY/1IUpH8mxqaOxP17y+ojzD5Cqu9hIsuxKvV2PI6vRKSbGP8yfKpCU+WYSiUifXtGAstSSDVvhUifEVJNY/zL9Cnvv+4J0p/LCHzZilifi8fyleQGk5PDchSknrZfh/FYXiCkvgIDHpSC1Dl4PF/Jo/GJj9sLYHi8Qomk2pwR6CDdisf0FUH6/oz4B6S66+DDzno2HrMQRkanDncDHLilabz9KpYR/+AkfSsec+jMncHrXU5wA7Yam7Pw2L4yO4AkI4eB2sPdylxJRpi4gQ3YMl3Hjkg9iPHnYTWefCEeeyhEsXoTBpOX5Wq8fgjjz0VSd+KxcycaNesF6V86weSkIHMmxuArQqqHMf68HPpdy8WGSg1aIdUWjMFXhNSPYPx5OrQ/+UP46uYoYjOBcfiKIPUoxp+vKv+x/fY7pL154B48XwWpOsbiK8NvvL2XYf4E4xgodkAEHnQoFv31pQ8E6Z868eesvYePcQyMtaPmd/oZIDlY1WaMx1ciUo+58edvbqN2hVSX4MGGZ4kav8RxhcvV3hXEWJbN3Bh492DDskrqdIzJV4pqvHXg/+sF6Y/jQYZpmRpfxMlvR0HqDoxnydixc3iAYSvInIZx+Yog9QTGP0wHdt9+9mHGjAMMUyHV2zEuXxFS/y/GP0wFqU9gTEvC/vnAnQ9bIU1pZn8WUv0c4x+qpP4PY+qbkU2TVWfHRRirt2JsvpL9qPeQJfV6jKsvRKzPc3ZagFWp3oKx+YoPjbdjHzGuvhjaLcZFLFXjpX4K4x+29s4pxtUz0SYzhjssyqo0f4Px+UpxVzfnK6R6DcbWExGp83FnRVmN1SkYn68Mc5zCgpL6KMbWE4L0V52dFSQ3fgmSfghj6wkfTlI6CjInY3y+IqRuYfxF2fc4/JFNky/GnRSpIPVmjNFXMPYirZL6U4xvQSJpTsKdFKs5CWP0FTf24hSkL8b4FkRI/WHcSaHG6k0Yo684sRcpqa9hfAtiJxV0dlKgVTJ/jTH6CsZepHbEL8bXlbWjW/bGHRRtbqNLcgBjL9oDx01v8+2uk+Yl+OGirUpzIsbpKxh70fY8sYJ9CB8/XLQiVn+JcfoKxl60IjZ/jDFmUo3N6/DDRcuNX7o939L276vc7AWcv8A4fQVjL9qeH7Oyz6nhh4vWzv2OcfoKxu6Bl2KMmfh0c+bXmjdinL7ixl6sdooajDETQepD+OHCjdUJGKevOLEXrCB1DcaYSc9zyA/Ramz+DOP0FYy9aAWp6zHGTCLSN+CHi7bvmw0FgrEXrZDqnzDGTPKctmzJkr7VTsaAsfpGNGaOcWIvWCHV5zHOTIp9Rm5RP+bjzM52zRwh1W0Z8RYvqU9hvJkU9ih0j84OdCB1kX16F2MfNmJ06mX2TynG6JWkL8O4M7HPqTkf9lA7qFGQ0nbKNcwhb+z0I/ZPKMbkqRdi/JnYq2QZH/ZWOxHBsGbMSCZ9uhpj8NmeZwyLYvUq/HAZnJtDNp+ROiLW64p+Ynip9nyfY27RIHcH5VHdtexHiBLsieRAllYpUCHVsZhXJnPru7o7KJuC9Pft1yvMrxdWj5tVnn+76VlB5gWYX1dyn4h3iNrnA+xEy5hjFrPr6Ej1Ll+ehhmEmOOC2Mt8uIOya1d17HYRyA5PsrcvC3/EecAKqf8Tc10Qu/gP7iQU7cQBdk4fm2cyvnBrkfPW5KldwRp7uyAVqY7HnYSnurKIOemGad/Tvfsw7w27fEfGpkaxt4uS49oq7JDEnvZEiS5JshkK0t/EnvaEnYUCd8aWxyWv1Te3TKi7Q7Yc2ieesac94+NoHHZx7QJR2Mu+EFK9AXfK+q+9+oi97Bs7YR7umPVb+/wj9rFvyno7cqUqSP8Qe7gkolgdjTtn/bXngRe9EJH+ER6A9VP7bQz7t2TswAY8AOufgtRHsHfLxrfpUVjXXNagq5J6LR6I9UjSN2DPBgb/1vurHeOP/RoYFTKvxAOyxdvzE7HLISL9XTwwW6x2QQns08CpSrMBD8wWKKmLsEe5EcX6AicAdviSetCOG8T+5IodwekEwg7VaqyOw77kjm8zXK80e57bJg/sKE4MiB2G6gG7pDv2Y6hEUn/bDYzN056nKc2TylGm4s1yHCvAqtTbsQeFwRd2hmPP89kMEzvDNAbKDlL1Hay5N9iZKdyA2QG4c6D32fPAzylRS6xd7XPTjkOwzl4iSF3uJMD2rV2SvK+JDXxg9nn0jGTYHiX9pBibOhLrWgq8nBC5BAqpH8llNM0wsYsFYmLsApJq9L1CpK9U4ykpSP/MSZKdpyD1FR9m7Bwo9sxUkP5vTJadU8T6PKxZMNjpRwXpz2HSK1pSj/U8F13ZsatD268qThFWnOpK7y/MDJpozBzk/czPOTk7zUysjsaarCjso9j26wsWJ0TtXUw7n15l3OyFdViRiCPOeW7oT+UKqa/ycZEFL5i9Lp1RtNJLuom5MinsstdO0UKQVANzZVIE/L9+J+bKpBCkHs0oWukVUt2LuTIpQp1bVpC+B3NlUtirWFi0EOTGL0Ik9eNYtBAUpO7GXJkUwc4bT/rHmCuTItxbt+ouzJVJIUg94RYtAEn/CHNlUgR7x47UnZgrkyK0xYA62gEomCuTwo4sxaKFoJDqvzBXJkWoEyb3vQzYSiOS+iksWggKUv+BuTIpQlrhMS03fhFCfc5+YFOJh4og9TQWLQzVDzBXJoWQuuUWLQj/HXNlUmQULAxJ/RvmyqRwChaIdi17zJVJgQULRSHV9zBXJgUWLBSF1P+KuTIpsGChKEjdgbkyKbBgwUj6u5grk8IpWChy4xfGKVgwejxHnQ+4BQvGb2OuTIqMggWhIPUtzJVJgQULRUH6m5grkwILFoqC1DcwVyYFFiwUhdT/grkyKbBgwUjq65grk8IpWCiSvh1zZVI4BQtFbvzCOAULRVJfw1yZBDsTlFOwQBRS/zPmyyTYFROxYKEopLoN82US7HSnWLBQFKS/ivkyCXYBPSxYKNpZqTFfJuHAcfMcLFgoCqm/jPkyCavirftiwcJRfQnzZRLWbzT7uQULRNK3Yr5Mgp3P1ilYKJK6BfNlEirjZn+nYKHIje+OnbDfKVggCqlvxnyZBLsIDxYsFO2CDJgvk7Bmw7YDsGChKEh/EfNlElaPm1VYsFAUpG7CfJmE9XLbgViwgLwR82US7OJEGQULRPUFzJdJqG7cfrBbsEAkfQPmyyRUjjTPcwoWiILU9Zgvk2BXaMKChaJdUh3zZRIOic1qLFgocuMXYO3ojjVYsFAUUn0e82US7JrpWLBQtAspY75Mgl1mHAsWioLUZzFfJkHEeh0WLBhJX4f5MgnVsR0jTsGCUX0G82USKkeZiluwMBRSX4v5MgkjmyarWLBQFKSuwXyZhHVkBBYsFAXpqzFfJuGQsckICxaKQqpPY75MAjd+hRKNmvVYsFAUUl+F+TIJYtPk72LBgpHUpzBfJkGQeYFTsFAk/UnMl0moxpMvdAoWjOpKzJdJqIyaF7kFC0Mh9RWYL5MwsmnyxViwUBSkPoH5MgnrpHkJFiwUBemPY75Mwvp46qVYsFAUpC7HfJmEaMwcigULyI9hvkyCGJ16WUbBQpEb342qNIdlFCwMSX0U82USqjT1e07BQpH0ZZgvk1AZM7/vFCwQBamPYL5Mwsjo1OFYsFAUUn8Y82USRqR5ORYsFAWpD2G+TEJEU0dgwUJRkP4g5sskiNi8AgsWioLUP2C+TIIYmzoSCxaQl2K+TEJVmg0ZBQtE9QHMl0mo0NRGt2ChyI3vSiU2R7kFC8Mq6b/HfJmEkbGpUSxYKApS78d8mYRokxnDgoWikPp9mC+TEMmpGAsWikKqSzBfJkHEmrBgoShIX4z5MgnVeEpiwYKR1EWYL5NQ3WQ2OQULxwsxXyahIqf+IKNggajei/kyCRUy427BwlCQ/jvMl0mIYnU0FiwUufELEI2ZY7BgoShIvQfzZRKEVMdiwUJRkH435sskCDJ/iAULRSHVuzBfJqEaq+OwYMEY6wswXyahOmb+yClYKJI6H/NlEipSHe8ULBRJ/y3myyRUyLzSKVggVqV6J+bLJIT8dS4iM4n5MglBP0IVq7divkxCyNOWR6Rej/kyCZVxs5dTsEC04wkxXyaFIH0/Fi0EVx9h9sFcmRQR6VuxaAG4E/NkADtSJaNwJZcXKVgUIdVr3MKV26pUb8E8mQywcGXXrq6FOTIZCKlvxuKVV3UX5sd0IYrVCW4BSyqZGubHdMF+nxdS/cIpYskUpH+5Kt66L+bHLIAdlYqFLJs83GoJrN9o9hOknsBilkX7F2vNhm0HYF5MDwip3o4FLYtCGoX5MH0gSN2BRfVfPpNfNnZlKiF1yy2uv9q5fDAPZgnYK19YXF8VpN6M8TPLwK6/jkX2TX4GPgfWjm7ZOyJ9OxbbF3nmypwRpG7CohctD6QcElWpt2Pxi1KQORnjY3JkdvYM0g9hI4boTvs8P8bFDIG5q3v66oym5KaQ6ueRVGdjLEwB2DVp7fJe2KRBa2eg5suwHlIZN/uL2EwIqe7Fpi1ZUg17TrF63KzC4zEeYtewE7E+N5L6RiHVw05DuyikfkSQ/qKQaptdHAn3y5SMaMwcZMfzVUntEKRM4jlVaU60U7DYdW3tOQN+jmEYhmFKyv8DDMOEI692H84AAAAASUVORK5CYII=" alt="iAssist Logo Icon" class="brand-wrench-icon">
               <span class="brand-assist-text">Assist</span>
             </div>
             <span class="brand-desktop-sub">ICT ASSISTANCE & SELF-SERVICE SUPPORT</span>
@@ -248,7 +3735,7 @@
                   placeholder="Search your ICT problem, e.g. Wi-Fi or password"
                   autocomplete="off"
                 >
-                <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear Search">✕</button>
+                <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear Search">âœ•</button>
                 <button type="button" class="search-inline-btn" id="mainSearchSubmitBtn">Search</button>
               </div>
 
@@ -380,9 +3867,9 @@
 
             <div class="preview-meta-chips">
               <span class="meta-chip" id="previewMetaCategory">INTERNET & CONNECTIVITY</span>
-              <span class="meta-chip">📶 <span id="previewMetaDifficulty">Beginner</span></span>
-              <span class="meta-chip">⏱ <span id="previewMetaTime">3–5 mins</span></span>
-              <span class="meta-chip">✓ <span id="previewMetaRate">94% Solved</span></span>
+              <span class="meta-chip">ðŸ“¶ <span id="previewMetaDifficulty">Beginner</span></span>
+              <span class="meta-chip">â± <span id="previewMetaTime">3â€“5 mins</span></span>
+              <span class="meta-chip">âœ“ <span id="previewMetaRate">94% Solved</span></span>
             </div>
 
             <!-- Prerequisites Card -->
@@ -516,11 +4003,11 @@
               <div class="rating-box">
                 <div style="font-size:12px; font-weight:600; color:var(--status-success-text); margin-bottom:6px;">Rate this troubleshooting guide</div>
                 <div class="rating-stars">
-                  <span class="rating-star active" data-val="1">★</span>
-                  <span class="rating-star active" data-val="2">★</span>
-                  <span class="rating-star active" data-val="3">★</span>
-                  <span class="rating-star active" data-val="4">★</span>
-                  <span class="rating-star active" data-val="5">★</span>
+                  <span class="rating-star active" data-val="1">â˜…</span>
+                  <span class="rating-star active" data-val="2">â˜…</span>
+                  <span class="rating-star active" data-val="3">â˜…</span>
+                  <span class="rating-star active" data-val="4">â˜…</span>
+                  <span class="rating-star active" data-val="5">â˜…</span>
                 </div>
               </div>
 
@@ -646,8 +4133,8 @@
                   type="text" 
                   class="form-input" 
                   id="formDeviceSelect" 
-                  placeholder="Lenovo IdeaPad · Windows 11"
-                  value="Lenovo IdeaPad · Windows 11"
+                  placeholder="Lenovo IdeaPad Â· Windows 11"
+                  value="Lenovo IdeaPad Â· Windows 11"
                 >
               </div>
 
@@ -765,10 +4252,10 @@
               <div class="stepper-timeline">
                 <!-- Stage 1 -->
                 <div class="stepper-stage-item completed">
-                  <div class="stage-bullet">✓</div>
+                  <div class="stage-bullet">âœ“</div>
                   <div class="stage-content">
                     <span class="stage-title">Submitted</span>
-                    <span class="stage-meta">08 Nov 2026 · 9:42 AM</span>
+                    <span class="stage-meta">08 Nov 2026 Â· 9:42 AM</span>
                   </div>
                 </div>
                 <!-- Stage 2 -->
@@ -776,7 +4263,7 @@
                   <div class="stage-bullet">2</div>
                   <div class="stage-content">
                     <span class="stage-title">Assigned to Technician</span>
-                    <span class="stage-meta">Engr. R. Santos · ICT Support Team</span>
+                    <span class="stage-meta">Engr. R. Santos Â· ICT Support Team</span>
                   </div>
                 </div>
                 <!-- Stage 3 -->
@@ -803,7 +4290,7 @@
               <h2 class="block-card-title" id="trackerDetailTitle">Cannot connect to campus Wi-Fi in Library</h2>
               <div style="display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--color-primary-text);">
                 <div><strong>Category:</strong> <span id="trackerDetailCategory">Internet & Connectivity</span></div>
-                <div><strong>Device:</strong> <span id="trackerDetailDevice">Lenovo IdeaPad · Windows 11</span></div>
+                <div><strong>Device:</strong> <span id="trackerDetailDevice">Lenovo IdeaPad Â· Windows 11</span></div>
                 <div><strong>Location:</strong> <span id="trackerDetailLocation">Main Library 2nd Floor</span></div>
                 <div><strong>Description:</strong> <span id="trackerDetailDesc">Whenever I open my laptop in the 2nd floor library reading area, Campus-WiFi fails authentication.</span></div>
               </div>
@@ -953,7 +4440,7 @@
               <div class="profile-avatar-large">AM</div>
               <h1 class="profile-name">Alex Morgan</h1>
               <div class="profile-id">Student ID: 2024-01842</div>
-              <span class="profile-badge-chip">BSc Information Systems · Year 2</span>
+              <span class="profile-badge-chip">BSc Information Systems Â· Year 2</span>
               <div style="margin-top: 14px;">
                 <button class="btn-secondary" id="editProfileBtn" style="color:#FFFFFF; border-color:rgba(255,255,255,0.4); background:transparent;">
                   <span>Edit Profile</span>
@@ -968,7 +4455,7 @@
                 <div><strong>Campus:</strong> University Campus Network</div>
                 <div><strong>Email:</strong> alex.morgan@student.edu</div>
                 <div><strong>Contact Phone:</strong> <span id="profilePhoneDisplay">+63 917 555 0192</span></div>
-                <div><strong>Account Status:</strong> <span style="color:var(--status-success-text); font-weight:600;">✓ Active Student Enrolled</span></div>
+                <div><strong>Account Status:</strong> <span style="color:var(--status-success-text); font-weight:600;">âœ“ Active Student Enrolled</span></div>
               </div>
             </div>
 
@@ -1018,8 +4505,8 @@
             <div class="settings-card">
               <h2 class="settings-title">Campus ICT Directory</h2>
               <div style="font-size:13px; color:var(--color-supporting-text); display:flex; flex-direction:column; gap:6px;">
-                <div><strong>Location:</strong> ICT Support Department · Rm 204</div>
-                <div><strong>Office Hours:</strong> Monday – Friday · 8:00 AM – 5:00 PM</div>
+                <div><strong>Location:</strong> ICT Support Department Â· Rm 204</div>
+                <div><strong>Office Hours:</strong> Monday â€“ Friday Â· 8:00 AM â€“ 5:00 PM</div>
                 <div><strong>Helpdesk Hotline:</strong> (049) 562-1234 loc. 105</div>
                 <div><strong>Email:</strong> ict-helpdesk@university.edu</div>
               </div>
@@ -1089,7 +4576,7 @@
     <div class="modal-dialog">
       <div class="modal-header">
         <h2 class="modal-title">Edit Student Profile</h2>
-        <button id="closeProfileModalBtn" style="font-size:1.2rem; color:var(--color-supporting-text);">✕</button>
+        <button id="closeProfileModalBtn" style="font-size:1.2rem; color:var(--color-supporting-text);">âœ•</button>
       </div>
       <div class="modal-body">
         <div class="form-group">
@@ -1118,6 +4605,1701 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Master JavaScript Application -->
-  <script src="js/app.js"></script>
+    <script>
+/**
+ * iAssist â€” Design System & Interactive Prototype Application Logic
+ * Directly mapped from Figma "Elements" Page (Artboard: iAssist â€” Design System)
+ */
+
+(function () {
+  'use strict';
+
+  // ==========================================================================
+  // Mock Data & Initial State (Elements Page Specifications)
+  // ==========================================================================
+  const INITIAL_GUIDES = [
+    {
+      id: 'wifi-connect',
+      category: 'internet',
+      title: 'Cannot connect to campus Wi-Fi network',
+      popular: true,
+      stepsCount: 5,
+      time: '3â€“5 mins',
+      difficulty: 'Beginner',
+      successRate: '94%',
+      tags: ['wifi', 'network', 'campus-wifi', 'internet', 'connection', 'password'],
+      prerequisites: [
+        'Active student ID and enrolled semester status',
+        'Wi-Fi adapter enabled on your laptop, phone, or tablet',
+        'Within physical range of Campus-WiFi access points'
+      ],
+      steps: [
+        {
+          index: 1,
+          title: 'Turn Wi-Fi off and wait 10 seconds',
+          instruction: 'Toggling your device network adapter resets the local wireless cache and clears temporary IP conflicts. Turn it off, wait 10 seconds, then toggle it back on.',
+          simType: 'wifi-toggle'
+        },
+        {
+          index: 2,
+          title: 'Forget the campus network and reconnect',
+          instruction: 'Cached certificates often expire between terms. Removing Campus-WiFi from your saved networks forces your device to request a fresh authentication handshake.',
+          simType: 'network-select'
+        },
+        {
+          index: 3,
+          title: 'Verify student login credentials',
+          instruction: 'Ensure your username includes the full institutional domain (@student.edu). Passwords are case-sensitive. If you recently updated your portal password, use the new one.',
+          simType: 'credentials-tip'
+        },
+        {
+          index: 4,
+          title: 'Renew DHCP lease / Flush DNS cache',
+          instruction: 'If your device receives an invalid 169.254.x.x IP address, release and renew your DHCP configuration using your operating system network diagnostics.',
+          simType: 'terminal-cmd'
+        },
+        {
+          index: 5,
+          title: 'Check device date and time synchronization',
+          instruction: 'Enterprise 802.1X campus networks reject authentication if your system clock deviates by more than 3 minutes from the university domain controller.',
+          simType: 'clock-check'
+        }
+      ]
+    },
+    {
+      id: 'slow-internet',
+      category: 'internet',
+      title: 'Slow or unstable internet connection in lecture halls',
+      popular: false,
+      stepsCount: 4,
+      time: '4 mins',
+      difficulty: 'Beginner',
+      successRate: '88%',
+      tags: ['slow', 'speed', 'bandwidth', 'disconnect', 'lag'],
+      prerequisites: [
+        'Connected to Campus-WiFi',
+        'Close peer-to-peer or high-bandwidth background sync tasks'
+      ],
+      steps: [
+        { index: 1, title: 'Disconnect background sync apps', instruction: 'Pause cloud sync drives and operating system updates during class.' },
+        { index: 2, title: 'Switch between 2.4GHz and 5GHz bands', instruction: 'In high-density lecture halls, 5GHz provides much higher throughput.' },
+        { index: 3, title: 'Restart network stack', instruction: 'Flush DNS resolver cache and clear local browser sockets.' },
+        { index: 4, title: 'Move closer to nearest access point', instruction: 'Concrete building partitions can degrade RSSI signal quality.' }
+      ]
+    },
+    {
+      id: 'portal-timeout',
+      category: 'internet',
+      title: 'Student Portal login timeout & DNS error',
+      popular: true,
+      stepsCount: 3,
+      time: '2 mins',
+      difficulty: 'Beginner',
+      successRate: '92%',
+      tags: ['portal', 'login', 'dns', 'timeout', 'grades', 'enrollment'],
+      prerequisites: ['Browser updated to latest version', 'Clear old portal cookies'],
+      steps: [
+        { index: 1, title: 'Flush local DNS cache', instruction: 'Clear stale DNS records pointing to former server clusters.' },
+        { index: 2, title: 'Try Incognito / Private window', instruction: 'Bypasses corrupt session cookies and local cache storage.' },
+        { index: 3, title: 'Use campus recommended DNS resolver', instruction: 'Configure DNS to use Internal Gateway or 1.1.1.1.' }
+      ]
+    },
+    {
+      id: 'computer-freezing',
+      category: 'devices',
+      title: 'Computer freezing or extreme thermal throttling',
+      popular: true,
+      stepsCount: 4,
+      time: '6 mins',
+      difficulty: 'Intermediate',
+      successRate: '85%',
+      tags: ['freeze', 'slow', 'laptop', 'crash', 'overheating', 'ram'],
+      prerequisites: ['Save any open coursework files before testing'],
+      steps: [
+        { index: 1, title: 'Open Task Manager and check CPU/RAM usage', instruction: 'Identify memory-hogging background tasks and terminate unresponsive processes.' },
+        { index: 2, title: 'Inspect vents and thermal airflow', instruction: 'Ensure laptop cooling intakes are unobstructed by soft surfaces.' },
+        { index: 3, title: 'Run System File Checker (SFC)', instruction: 'Execute sfc /scannow in elevated command prompt to repair corrupted system files.' },
+        { index: 4, title: 'Perform a clean restart', instruction: 'Use restart rather than shutdown to trigger full kernel initialization.' }
+      ]
+    },
+    {
+      id: 'ms-office-install',
+      category: 'software',
+      title: 'Microsoft 365 student license activation & install',
+      popular: true,
+      stepsCount: 4,
+      time: '8 mins',
+      difficulty: 'Beginner',
+      successRate: '96%',
+      tags: ['word', 'excel', 'powerpoint', 'office', 'license', 'microsoft', 'software'],
+      prerequisites: ['Student email address with active enrollment'],
+      steps: [
+        { index: 1, title: 'Log in to portal.office.com', instruction: 'Sign in using your institutional email (@student.edu).' },
+        { index: 2, title: 'Click Install Office button', instruction: 'Download the official 64-bit deployment package.' },
+        { index: 3, title: 'Run setup and authenticate license', instruction: 'Launch Word, click Sign In at top right, and complete 2FA.' },
+        { index: 4, title: 'Verify active subscription status', instruction: 'Under File > Account, confirm Subscription Product for Students.' }
+      ]
+    },
+    {
+      id: 'password-reset',
+      category: 'accounts',
+      title: 'Student email & portal password reset',
+      popular: true,
+      stepsCount: 3,
+      time: '3 mins',
+      difficulty: 'Beginner',
+      successRate: '98%',
+      tags: ['password', 'account', 'reset', 'forgot', 'email', 'login', 'security'],
+      prerequisites: ['Access to your registered recovery mobile phone number'],
+      steps: [
+        { index: 1, title: 'Access Self-Service Password Reset (SSPR)', instruction: 'Navigate to passwordreset.microsoftonline.com.' },
+        { index: 2, title: 'Enter student ID email and CAPTCHA', instruction: 'Provide your alex.morgan@student.edu identifier.' },
+        { index: 3, title: 'Verify SMS security code', instruction: 'Enter the 6-digit one-time PIN sent to your phone and establish a new 12-character passphrase.' }
+      ]
+    }
+  ];
+
+  const INITIAL_FAQS = [
+    {
+      id: 'faq-1',
+      category: 'Using iAssist',
+      question: 'How do I submit an ICT assistance request?',
+      answer: 'You can submit a request anytime by tapping the <strong>Request ICT Assistance</strong> button on the Home screen or in the Requests tab. Fill in your problem title, select the relevant category and affected device, provide a brief description, and attach screenshots if applicable. Once submitted, our technical helpdesk will triage and assign a technician within regular operating hours.'
+    },
+    {
+      id: 'faq-2',
+      category: 'Using iAssist',
+      question: 'How long does it take for a request to be resolved?',
+      answer: 'Standard requests are triaged within <strong>2 to 4 hours</strong> on weekdays (8:00 AM â€“ 5:00 PM). Minor issues (e.g. password resets, Wi-Fi driver configs) are usually solved within the same day. Complex hardware issues or laboratory system problems may take 24â€“48 hours.'
+    },
+    {
+      id: 'faq-3',
+      category: 'Using iAssist',
+      question: 'Can I track the status of my submitted request?',
+      answer: 'Yes! Navigate to the <strong>Requests</strong> tab at the bottom of the screen. You can tap on any ticket to view its interactive 4-stage progress tracker, assigned technician name, diagnostic notes, and send real-time follow-up messages.'
+    },
+    {
+      id: 'faq-4',
+      category: 'Internet & Connectivity',
+      question: 'What should I do if my Wi-Fi keeps disconnecting in the Library?',
+      answer: 'Library thick wall partitions can cause roaming conflicts between access points. Go to your Wi-Fi settings, select <em>Forget Network</em> on <strong>Campus-WiFi</strong>, restart your device, and reconnect. If the problem persists, try our step-by-step troubleshooting guide or visit the ICT Office at Rm 204.'
+    },
+    {
+      id: 'faq-5',
+      category: 'Using iAssist',
+      question: 'Who can I contact for urgent ICT issues during midterms or finals?',
+      answer: 'For emergency ICT issues during examinations or laboratory classes, please visit the <strong>ICT Support Department Office at Room 204</strong>, or have your proctor call local hotline <strong>ext. 105</strong> for priority on-site dispatch.'
+    },
+    {
+      id: 'faq-6',
+      category: 'Accounts & Security',
+      question: 'How do I reset my student portal password?',
+      answer: 'Use the Microsoft Self-Service Password Reset portal (SSPR) or follow our <em>Student Email & Portal Password Reset</em> guide in the Solutions tab. You will receive an SMS verification code to your enrolled phone number.'
+    }
+  ];
+
+  const INITIAL_REQUESTS = [
+    {
+      id: 'ICT-2026-0148',
+      title: 'Cannot connect to campus Wi-Fi in Library',
+      category: 'Internet & Connectivity',
+      device: 'Lenovo IdeaPad Â· Windows 11',
+      location: 'Main Library 2nd Floor (Quiet Zone)',
+      status: 'Assigned to Technician',
+      statusCode: 'in_progress',
+      date: '08 Nov 2026 Â· 9:42 AM',
+      description: 'Whenever I open my laptop in the 2nd floor library reading area, Campus-WiFi shows "Can\'t connect to this network". My phone connects fine, but laptop fails authentication.',
+      stepsTried: ['Turned Wi-Fi off and back on', 'Forgot campus network', 'Followed troubleshooting guide'],
+      technician: 'Engr. R. Santos (ICT Support Team)',
+      timeline: [
+        { time: '08 Nov Â· 9:42 AM', title: 'Request Submitted', text: 'Assistance request logged by Alex Morgan.', isTech: false },
+        { time: '08 Nov Â· 10:15 AM', title: 'Assigned to Technician', text: 'Assigned to Engr. R. Santos. Remote wireless log inspection queued.', isTech: true },
+        { time: '08 Nov Â· 11:30 AM', title: 'Technician Note', text: 'AP 204-East showed multiple EAPoL handshake timeouts for your MAC address. Please bring your laptop to Rm 204 if updating the Intel wireless driver does not clear the error.', isTech: true }
+      ]
+    },
+    {
+      id: 'ICT-2026-0126',
+      title: 'Coursework upload restored on Student Portal',
+      category: 'Software & Applications',
+      device: 'MacBook Air (macOS Sonoma)',
+      location: 'Off-campus / Remote',
+      status: 'Resolved',
+      statusCode: 'resolved',
+      date: '07 Nov 2026 Â· 3:15 PM',
+      description: 'Could not upload PDF project submission for IS 201 due to HTTP 413 file size error.',
+      stepsTried: ['Cleared browser cache', 'Compressed PDF'],
+      technician: 'Ms. K. Del Rosario (MIS Support)',
+      timeline: [
+        { time: '07 Nov Â· 3:15 PM', title: 'Submitted', text: 'Ticket logged.', isTech: false },
+        { time: '07 Nov Â· 4:20 PM', title: 'Resolved', text: 'Portal payload limit adjusted to 25MB. Upload verified successfully.', isTech: true }
+      ]
+    },
+    {
+      id: 'ICT-2026-0118',
+      title: 'Student email password reset',
+      category: 'Accounts & Security',
+      device: 'iPhone 14',
+      location: 'Campus Wide',
+      status: 'Closed',
+      statusCode: 'closed',
+      date: '28 Oct 2026 Â· 10:20 AM',
+      description: 'Forgot 2FA backup phone number after changing SIM card.',
+      stepsTried: ['Tried SMS verification'],
+      technician: 'Mr. A. Ramos (Security Admin)',
+      timeline: [
+        { time: '28 Oct Â· 10:20 AM', title: 'Submitted', text: 'Ticket submitted with Student ID verification.', isTech: false },
+        { time: '28 Oct Â· 11:00 AM', title: 'Closed', text: 'Identity validated and recovery phone updated.', isTech: true }
+      ]
+    }
+  ];
+
+  const INITIAL_NOTIFICATIONS = [
+    {
+      id: 'notif-1',
+      title: 'Your request has been submitted',
+      desc: 'ICT-2026-0148 Â· Cannot connect to campus Wi-Fi in Library',
+      timestamp: '08 Nov 2026 Â· 9:42 AM',
+      unread: true,
+      type: 'ticket',
+      targetId: 'ICT-2026-0148'
+    },
+    {
+      id: 'notif-2',
+      title: 'Your file upload issue has been resolved',
+      desc: 'ICT-2026-0126 Â· Coursework upload restored on Student Portal',
+      timestamp: '07 Nov 2026 Â· 3:15 PM',
+      unread: true,
+      type: 'ticket',
+      targetId: 'ICT-2026-0126'
+    },
+    {
+      id: 'notif-3',
+      title: 'New troubleshooting guide published',
+      desc: 'Updated student guide for Microsoft 365 licensing & 2FA registration.',
+      timestamp: '05 Nov 2026 Â· 11:08 AM',
+      unread: false,
+      type: 'guide',
+      targetId: 'ms-office-install'
+    },
+    {
+      id: 'notif-4',
+      title: 'Support request closed',
+      desc: 'ICT-2026-0118 Â· Student email password reset has been closed.',
+      timestamp: '28 Oct 2026 Â· 10:20 AM',
+      unread: false,
+      type: 'ticket',
+      targetId: 'ICT-2026-0118'
+    }
+  ];
+
+  // ==========================================================================
+  // App State Controller
+  // ==========================================================================
+  const State = {
+    activeView: 'view-home',
+    viewHistory: ['view-home'],
+    guides: INITIAL_GUIDES,
+    faqs: INITIAL_FAQS,
+    requests: INITIAL_REQUESTS,
+    notifications: INITIAL_NOTIFICATIONS,
+    currentCategory: 'internet',
+    currentGuide: INITIAL_GUIDES[0],
+    wizardStepIndex: 0,
+    currentTicket: INITIAL_REQUESTS[0],
+    showEmptyRequestsDemo: false,
+    uploadedFiles: [],
+    theme: 'light',
+    viewportMode: 'responsive',
+    viewportWidth: 1440,
+    viewportHeight: 900,
+
+    init() {
+      try {
+        const storedRequests = localStorage.getItem('iassist_v2_requests');
+        if (storedRequests) this.requests = JSON.parse(storedRequests);
+
+        const storedNotifs = localStorage.getItem('iassist_v2_notifications');
+        if (storedNotifs) this.notifications = JSON.parse(storedNotifs);
+
+        const storedTheme = localStorage.getItem('iassist_theme');
+        if (storedTheme) this.theme = storedTheme;
+
+        const storedMode = localStorage.getItem('iassist_mode');
+        if (storedMode) this.viewportMode = storedMode;
+
+        const storedW = localStorage.getItem('iassist_viewport_w');
+        if (storedW) this.viewportWidth = parseInt(storedW, 10);
+
+        const storedH = localStorage.getItem('iassist_viewport_h');
+        if (storedH) this.viewportHeight = parseInt(storedH, 10);
+      } catch (e) {
+        console.warn('LocalStorage error:', e);
+      }
+    },
+
+    save() {
+      try {
+        localStorage.setItem('iassist_v2_requests', JSON.stringify(this.requests));
+        localStorage.setItem('iassist_v2_notifications', JSON.stringify(this.notifications));
+        localStorage.setItem('iassist_theme', this.theme);
+        localStorage.setItem('iassist_mode', this.viewportMode);
+        localStorage.setItem('iassist_viewport_w', this.viewportWidth);
+        localStorage.setItem('iassist_viewport_h', this.viewportHeight);
+      } catch (e) {}
+    },
+
+    resetData() {
+      localStorage.removeItem('iassist_v2_requests');
+      localStorage.removeItem('iassist_v2_notifications');
+      this.requests = JSON.parse(JSON.stringify(INITIAL_REQUESTS));
+      this.notifications = JSON.parse(JSON.stringify(INITIAL_NOTIFICATIONS));
+      this.showEmptyRequestsDemo = false;
+      this.save();
+    }
+  };
+
+  // ==========================================================================
+  // UI Controller & Renderers
+  // ==========================================================================
+  const UI = {
+    elements: {
+      viewportWrapper: document.getElementById('viewportWrapper'),
+      appContainer: document.getElementById('appContainer'),
+      appBody: document.getElementById('appContentBody'),
+      searchBar: document.getElementById('mainSearchBar'),
+      searchDropdown: document.getElementById('searchResultsDropdown'),
+      searchClearBtn: document.getElementById('searchClearBtn'),
+      notifCountBadges: document.querySelectorAll('.notif-badge-count'),
+      activeRequestsCountBadge: document.getElementById('activeRequestsBadge'),
+      toastContainer: document.getElementById('toastContainer')
+    },
+
+    init() {
+      this.applyTheme(State.theme);
+      this.applyViewportMode(State.viewportMode);
+      this.updateBadges();
+      this.renderHome();
+      this.renderRequestsList();
+      this.renderFAQs();
+      this.renderNotifications();
+      this.bindEvents();
+    },
+
+    // View Navigation
+    navigateTo(viewId, pushHistory = true) {
+      if (!viewId) return;
+      const targetScreen = document.getElementById(viewId);
+      if (!targetScreen) {
+        console.error('View target not found:', viewId);
+        return;
+      }
+
+      document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
+      targetScreen.classList.add('active');
+
+      if (pushHistory && State.activeView !== viewId) {
+        State.viewHistory.push(viewId);
+      }
+      State.activeView = viewId;
+
+      if (this.elements.appBody) {
+        this.elements.appBody.scrollTop = 0;
+      }
+
+      this.syncBottomNav(viewId);
+      this.syncDesktopNav(viewId);
+    },
+
+    goBack() {
+      if (State.viewHistory.length > 1) {
+        State.viewHistory.pop();
+        const prev = State.viewHistory[State.viewHistory.length - 1];
+        this.navigateTo(prev, false);
+      } else {
+        this.navigateTo('view-home', false);
+      }
+    },
+
+    syncBottomNav(viewId) {
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+      let tabKey = 'home';
+      if (viewId === 'view-home' || viewId === 'view-search-empty') tabKey = 'home';
+      else if (viewId.startsWith('view-category') || viewId.startsWith('view-guide') || viewId === 'view-resolved') tabKey = 'solutions';
+      else if (viewId.startsWith('view-request')) tabKey = 'requests';
+      else if (viewId === 'view-faqs') tabKey = 'faqs';
+      else if (viewId === 'view-profile' || viewId === 'view-notifications') tabKey = 'profile';
+
+      const matchBtn = document.querySelector(`.nav-tab-btn[data-tab="${tabKey}"]`);
+      if (matchBtn) matchBtn.classList.add('active');
+    },
+
+    syncDesktopNav(viewId) {
+      document.querySelectorAll('.desktop-nav-link').forEach(btn => btn.classList.remove('active'));
+      let tabKey = 'home';
+      if (viewId === 'view-home' || viewId === 'view-search-empty') tabKey = 'home';
+      else if (viewId.startsWith('view-category') || viewId.startsWith('view-guide') || viewId === 'view-resolved') tabKey = 'solutions';
+      else if (viewId === 'view-request-form') tabKey = 'request-assistance';
+      else if (viewId.startsWith('view-request')) tabKey = 'requests';
+      else if (viewId === 'view-faqs') tabKey = 'faqs';
+      else if (viewId === 'view-notifications') tabKey = 'notifications';
+      else if (viewId === 'view-profile') tabKey = 'profile';
+
+      const matchBtn = document.querySelector(`.desktop-nav-link[data-tab="${tabKey}"]`);
+      if (matchBtn) matchBtn.classList.add('active');
+    },
+
+    updateBadges() {
+      const unreadCount = State.notifications.filter(n => n.unread).length;
+      this.elements.notifCountBadges.forEach(badge => {
+        badge.textContent = unreadCount;
+        badge.style.display = unreadCount > 0 ? 'flex' : 'none';
+      });
+
+      const activeReqs = State.requests.filter(r => r.statusCode === 'in_progress').length;
+      if (this.elements.activeRequestsCountBadge) {
+        this.elements.activeRequestsCountBadge.textContent = activeReqs;
+        this.elements.activeRequestsCountBadge.style.display = activeReqs > 0 ? 'inline-block' : 'none';
+      }
+
+      const desktopBadge = document.getElementById('desktopRequestsBadge');
+      if (desktopBadge) {
+        desktopBadge.textContent = activeReqs;
+        desktopBadge.style.display = activeReqs > 0 ? 'inline-block' : 'none';
+      }
+    },
+
+    showToast(message, type = 'info') {
+      if (!this.elements.toastContainer) return;
+      const toast = document.createElement('div');
+      toast.className = `toast-message ${type}`;
+      toast.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          ${type === 'success' 
+            ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
+            : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      this.elements.toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 200ms ease';
+        setTimeout(() => toast.remove(), 220);
+      }, 3000);
+    },
+
+    applyTheme(theme) {
+      State.theme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      const themeBtn = document.getElementById('themeToggleBtn');
+      if (themeBtn) {
+        themeBtn.innerHTML = theme === 'dark' 
+          ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> Light Mode`
+          : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> Dark Mode`;
+      }
+      State.save();
+    },
+
+    applyViewportMode(mode) {
+      State.viewportMode = mode;
+      if (this.elements.viewportWrapper) {
+        this.elements.viewportWrapper.setAttribute('data-mode', mode);
+      }
+      document.querySelectorAll('.view-mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === mode);
+      });
+
+      const dimToolbar = document.getElementById('responsiveDimensionToolbar');
+      const appViewport = document.getElementById('appViewport');
+
+      if (mode === 'responsive') {
+        if (dimToolbar) dimToolbar.classList.add('visible');
+        this.setViewportDimensions(State.viewportWidth || 1440, State.viewportHeight || 900, true);
+      } else {
+        if (dimToolbar) dimToolbar.classList.remove('visible');
+        if (appViewport) {
+          appViewport.style.width = '';
+          appViewport.style.height = '';
+          appViewport.classList.remove('is-desktop');
+          if (mode === 'tablet') {
+            appViewport.classList.add('is-tablet');
+            appViewport.classList.remove('is-mobile');
+            this.updateResponsiveDynamics(768);
+          } else {
+            appViewport.classList.add('is-mobile');
+            appViewport.classList.remove('is-tablet');
+            this.updateResponsiveDynamics(390);
+          }
+        }
+      }
+      State.save();
+    },
+
+    setViewportDimensions(width, height, updatePreset = true) {
+      const minW = 360;
+      const maxW = Math.min(1600, window.innerWidth - 32);
+      const minH = 480;
+      const maxH = Math.min(1200, window.innerHeight - 70);
+
+      const finalW = Math.max(minW, Math.min(maxW, Math.round(width)));
+      const finalH = Math.max(minH, Math.min(maxH, Math.round(height)));
+
+      State.viewportWidth = finalW;
+      State.viewportHeight = finalH;
+
+      const appViewport = document.getElementById('appViewport');
+      if (appViewport && State.viewportMode === 'responsive') {
+        appViewport.style.width = `${finalW}px`;
+        appViewport.style.height = `${finalH}px`;
+        this.updateResponsiveDynamics(finalW);
+      }
+
+      const wInput = document.getElementById('dimWidthInput');
+      const hInput = document.getElementById('dimHeightInput');
+      const wSlider = document.getElementById('dimWidthSlider');
+      const dimTag = document.getElementById('windowDimensionTag');
+
+      if (wInput && document.activeElement !== wInput) wInput.value = finalW;
+      if (hInput && document.activeElement !== hInput) hInput.value = finalH;
+      if (wSlider && document.activeElement !== wSlider) wSlider.value = finalW;
+      if (dimTag) dimTag.textContent = `${finalW} Ã— ${finalH} px`;
+
+      if (updatePreset) {
+        document.querySelectorAll('.preset-pill-btn').forEach(btn => {
+          const pw = parseInt(btn.dataset.w, 10);
+          const ph = parseInt(btn.dataset.h, 10);
+          btn.classList.toggle('active', Math.abs(pw - finalW) <= 24 && Math.abs(ph - finalH) <= 24);
+        });
+      }
+    },
+
+    updateResponsiveDynamics(width) {
+      const appViewport = document.getElementById('appViewport');
+      if (!appViewport) return;
+
+      const isDesktop = width >= 860;
+      const isTablet = width >= 600 && width < 860;
+      const isMobile = width < 600;
+
+      appViewport.classList.toggle('is-desktop', isDesktop);
+      appViewport.classList.toggle('is-tablet', isTablet);
+      appViewport.classList.toggle('is-mobile', isMobile);
+
+      const bottomNav = document.querySelector('.app-bottom-nav');
+      if (bottomNav) {
+        if (isDesktop) {
+          bottomNav.style.setProperty('display', 'none', 'important');
+        } else {
+          bottomNav.style.removeProperty('display');
+        }
+      }
+
+      this.syncDesktopNav(State.activeView);
+    },
+
+    // ==========================================================================
+    // Render Functions
+    // ==========================================================================
+    renderHome() {
+      const bannerContainer = document.getElementById('homeActiveTicketSlot');
+      const inProgressTicket = State.requests.find(r => r.statusCode === 'in_progress');
+      if (bannerContainer) {
+        if (inProgressTicket) {
+          bannerContainer.innerHTML = `
+            <div class="active-ticket-banner" id="homeActiveTicketBanner" data-id="${inProgressTicket.id}">
+              <div class="ticket-banner-left">
+                <span class="ticket-banner-badge">
+                  <span class="pulse-dot"></span>
+                  Active Request Â· ${inProgressTicket.id}
+                </span>
+                <span class="ticket-banner-title">${inProgressTicket.title}</span>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          `;
+          document.getElementById('homeActiveTicketBanner').addEventListener('click', () => {
+            this.openRequestTracker(inProgressTicket.id);
+          });
+        } else {
+          bannerContainer.innerHTML = '';
+        }
+      }
+    },
+
+    renderCategoryView(categoryId) {
+      State.currentCategory = categoryId;
+      const categoryTitles = {
+        internet: { name: 'Internet & Connectivity', desc: 'Troubleshooting guides for campus Wi-Fi, local network, and student portal connectivity.' },
+        devices: { name: 'Devices & Performance', desc: 'Step-by-step solutions for hardware freezes, laptop diagnostics, and battery management.' },
+        software: { name: 'Software & Applications', desc: 'Installation guides for Microsoft 365, laboratory software, and license activation.' },
+        accounts: { name: 'Accounts & Security', desc: 'Student portal password recovery, Microsoft 2FA enrollment, and identity assistance.' }
+      };
+
+      const meta = categoryTitles[categoryId] || categoryTitles.internet;
+      document.getElementById('categoryTitle').textContent = meta.name;
+      document.getElementById('categoryDesc').textContent = meta.desc;
+
+      const guides = State.guides.filter(g => g.category === categoryId);
+      const listEl = document.getElementById('categoryGuidesList');
+      if (listEl) {
+        listEl.innerHTML = guides.map(g => `
+          <div class="guide-card" data-guide-id="${g.id}">
+            <div class="guide-content-col">
+              <div class="guide-badge-row">
+                ${g.popular ? '<span class="badge-pill badge-popular">â˜… Most Popular</span>' : ''}
+                <span class="badge-pill badge-steps">${g.stepsCount}-step guide</span>
+              </div>
+              <div class="guide-card-title">${g.title}</div>
+              <div class="guide-meta-row">
+                <span>â± ${g.time}</span>
+                <span>â€¢</span>
+                <span>ðŸ“¶ ${g.difficulty}</span>
+                <span>â€¢</span>
+                <span>âœ“ ${g.successRate} solved</span>
+              </div>
+            </div>
+            <svg class="guide-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        `).join('');
+
+        listEl.querySelectorAll('.guide-card').forEach(card => {
+          card.addEventListener('click', () => {
+            this.openGuidePreview(card.dataset.guideId);
+          });
+        });
+      }
+
+      this.navigateTo('view-category');
+    },
+
+    openGuidePreview(guideId) {
+      const guide = State.guides.find(g => g.id === guideId) || State.guides[0];
+      State.currentGuide = guide;
+
+      document.getElementById('previewGuideTitle').textContent = guide.title;
+      document.getElementById('previewMetaCategory').textContent = guide.category.toUpperCase();
+      document.getElementById('previewMetaDifficulty').textContent = guide.difficulty;
+      document.getElementById('previewMetaTime').textContent = guide.time;
+      document.getElementById('previewMetaRate').textContent = `${guide.successRate} Solved`;
+
+      const checklistEl = document.getElementById('previewPrerequisitesList');
+      if (checklistEl) {
+        checklistEl.innerHTML = (guide.prerequisites || []).map((p, i) => `
+          <li class="checklist-item">
+            <input type="checkbox" id="prereq_${i}" checked>
+            <label for="prereq_${i}">${p}</label>
+          </li>
+        `).join('');
+      }
+
+      const stepsSummaryEl = document.getElementById('previewStepsSummaryList');
+      if (stepsSummaryEl) {
+        stepsSummaryEl.innerHTML = (guide.steps || []).map(s => `
+          <li class="step-summary-item">
+            <div class="step-index-circle">${s.index}</div>
+            <div class="step-summary-text">${s.title}</div>
+          </li>
+        `).join('');
+      }
+
+      this.navigateTo('view-guide-preview');
+    },
+
+    startWizard(guideId) {
+      const guide = State.guides.find(g => g.id === guideId) || State.currentGuide;
+      State.currentGuide = guide;
+      State.wizardStepIndex = 0;
+      this.renderWizardStep();
+      this.navigateTo('view-guide-wizard');
+    },
+
+    renderWizardStep() {
+      const guide = State.currentGuide;
+      const step = guide.steps[State.wizardStepIndex];
+      const total = guide.steps.length;
+
+      document.getElementById('wizardStepCounter').textContent = `Step ${step.index} of ${total}`;
+      const percent = Math.round(((State.wizardStepIndex + 1) / total) * 100);
+      document.getElementById('wizardProgressFill').style.width = `${percent}%`;
+
+      document.getElementById('wizardStepBadge').textContent = `Step ${step.index}`;
+      document.getElementById('wizardStepTitle').textContent = step.title;
+      document.getElementById('wizardStepInstruction').textContent = step.instruction;
+
+      const simSlot = document.getElementById('wizardSimSlot');
+      if (simSlot) {
+        if (step.simType === 'wifi-toggle') {
+          simSlot.innerHTML = `
+            <div class="simulator-box">
+              <div class="simulator-header">
+                <span class="sim-label">ðŸ“¶ Wi-Fi Adapter Switch</span>
+                <div class="toggle-switch-wrapper">
+                  <span class="switch-label" id="wifiSwitchStateLabel">Enabled</span>
+                  <label class="ios-switch">
+                    <input type="checkbox" id="simWifiToggle" checked>
+                    <span class="ios-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="sim-status-feedback" id="wifiSimFeedback">
+                <span>âœ“ Connected to Campus-WiFi (No internet access)</span>
+              </div>
+            </div>
+          `;
+
+          const toggleInput = document.getElementById('simWifiToggle');
+          const feedback = document.getElementById('wifiSimFeedback');
+          const label = document.getElementById('wifiSwitchStateLabel');
+          toggleInput.addEventListener('change', () => {
+            if (!toggleInput.checked) {
+              label.textContent = 'Disabled';
+              feedback.innerHTML = `<span>â³ Wi-Fi adapter is OFF. Please wait 10 seconds before turning back on...</span>`;
+              feedback.style.color = 'var(--status-warning-text)';
+            } else {
+              label.textContent = 'Enabled';
+              feedback.innerHTML = `<span>âœ“ Adapter re-enabled. IP address re-negotiated successfully!</span>`;
+              feedback.style.color = 'var(--status-success-text)';
+              UI.showToast('Wi-Fi adapter reset successfully!', 'success');
+            }
+          });
+        } else if (step.simType === 'network-select') {
+          simSlot.innerHTML = `
+            <div class="simulator-box">
+              <div class="simulator-header">
+                <span class="sim-label">ðŸ“¡ Campus Networks Detected</span>
+                <span style="font-size:12px; color:var(--color-supporting-text)">Tap to test</span>
+              </div>
+              <div class="network-list-sim">
+                <div class="network-sim-item selected" data-ssid="Campus-WiFi">
+                  <div class="network-sim-name">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                    <span>Campus-WiFi</span>
+                  </div>
+                  <span class="network-sim-action">Forget & Reconnect</span>
+                </div>
+                <div class="network-sim-item" data-ssid="Campus-Faculty-Secure">
+                  <div class="network-sim-name">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                    <span>Campus-Faculty-Secure</span>
+                  </div>
+                  <span class="network-sim-action">Restricted</span>
+                </div>
+                <div class="network-sim-item" data-ssid="eduroam">
+                  <div class="network-sim-name">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                    <span>eduroam</span>
+                  </div>
+                  <span class="network-sim-action">Roaming</span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          simSlot.querySelectorAll('.network-sim-item').forEach(item => {
+            item.addEventListener('click', () => {
+              simSlot.querySelectorAll('.network-sim-item').forEach(i => i.classList.remove('selected'));
+              item.classList.add('selected');
+              UI.showToast(`Selected "${item.dataset.ssid}". Stored certificates flushed.`, 'info');
+            });
+          });
+        } else if (step.simType === 'terminal-cmd') {
+          simSlot.innerHTML = `
+            <div class="terminal-box">
+              <code>ipconfig /renew && ipconfig /flushdns</code>
+              <button class="copy-cmd-btn" id="copyCmdBtn">Copy Command</button>
+            </div>
+            <p style="font-size:12px; color:var(--color-supporting-text); margin-bottom:12px;">Open Command Prompt (Windows) or Terminal (Mac) as administrator and paste.</p>
+          `;
+          document.getElementById('copyCmdBtn').addEventListener('click', () => {
+            navigator.clipboard?.writeText('ipconfig /renew && ipconfig /flushdns');
+            UI.showToast('Copied to clipboard: ipconfig /renew && ipconfig /flushdns', 'success');
+          });
+        } else {
+          simSlot.innerHTML = '';
+        }
+      }
+
+      const prevBtn = document.getElementById('wizardPrevBtn');
+      const nextBtn = document.getElementById('wizardNextBtn');
+
+      prevBtn.disabled = State.wizardStepIndex === 0;
+      prevBtn.style.opacity = State.wizardStepIndex === 0 ? '0.5' : '1';
+
+      if (State.wizardStepIndex === total - 1) {
+        nextBtn.innerHTML = `Finish Guide <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+      } else {
+        nextBtn.innerHTML = `Next Step <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+      }
+    },
+
+    populateRequestForm(prefillData = {}) {
+      if (prefillData.title) {
+        document.getElementById('formProblemTitle').value = prefillData.title;
+      }
+      if (prefillData.category) {
+        document.getElementById('formCategorySelect').value = prefillData.category;
+      }
+      if (prefillData.description) {
+        document.getElementById('formProblemDesc').value = prefillData.description;
+      }
+      this.navigateTo('view-request-form');
+    },
+
+    submitAssistanceRequest(formData) {
+      const newIdNumber = 148 + State.requests.length + 1;
+      const ticketId = `ICT-2026-0${newIdNumber}`;
+      const now = new Date();
+      const dateString = `${now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} Â· ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+      const newTicket = {
+        id: ticketId,
+        title: formData.title,
+        category: formData.category,
+        device: formData.device,
+        location: formData.location || 'University Campus Network',
+        status: 'Assigned to Technician',
+        statusCode: 'in_progress',
+        date: dateString,
+        description: formData.description,
+        stepsTried: formData.stepsTried || ['Followed step-by-step troubleshooter'],
+        technician: 'Engr. R. Santos (ICT Support Team)',
+        timeline: [
+          { time: dateString, title: 'Request Submitted', text: 'Ticket successfully submitted by student Alex Morgan.', isTech: false },
+          { time: 'Just now', title: 'Assigned to Helpdesk', text: 'Assigned to Technician Engr. R. Santos for diagnostics.', isTech: true }
+        ]
+      };
+
+      State.requests.unshift(newTicket);
+
+      State.notifications.unshift({
+        id: `notif-${Date.now()}`,
+        title: 'Your request has been submitted',
+        desc: `${ticketId} Â· ${newTicket.title}`,
+        timestamp: dateString,
+        unread: true,
+        type: 'ticket',
+        targetId: ticketId
+      });
+
+      State.save();
+      this.updateBadges();
+      this.renderHome();
+      this.renderRequestsList();
+      this.renderNotifications();
+
+      this.showToast(`Request ${ticketId} created successfully!`, 'success');
+      this.openRequestTracker(ticketId);
+    },
+
+    openRequestTracker(ticketId) {
+      const ticket = State.requests.find(r => r.id === ticketId) || State.requests[0];
+      State.currentTicket = ticket;
+
+      document.getElementById('trackerTicketRef').textContent = ticket.id;
+      const statusBadge = document.getElementById('trackerStatusChip');
+      statusBadge.textContent = ticket.status;
+      statusBadge.className = `status-chip ${ticket.statusCode === 'resolved' ? 'resolved' : 'assigned'}`;
+
+      document.getElementById('trackerDetailTitle').textContent = ticket.title;
+      document.getElementById('trackerDetailCategory').textContent = ticket.category;
+      document.getElementById('trackerDetailDevice').textContent = ticket.device;
+      document.getElementById('trackerDetailLocation').textContent = ticket.location;
+      document.getElementById('trackerDetailDesc').textContent = ticket.description;
+
+      this.renderTrackerTimeline(ticket);
+      this.navigateTo('view-request-tracker');
+    },
+
+    renderTrackerTimeline(ticket) {
+      const timelineContainer = document.getElementById('trackerTimelineFeed');
+      if (timelineContainer) {
+        timelineContainer.innerHTML = (ticket.timeline || []).map(entry => `
+          <div class="update-bubble ${entry.isTech ? 'from-tech' : ''}">
+            <div class="update-header-line">
+              <span>${entry.title}</span>
+              <span style="font-weight:400; font-size:11px; color:var(--color-supporting-text);">${entry.time}</span>
+            </div>
+            <p>${entry.text}</p>
+          </div>
+        `).join('');
+      }
+    },
+
+    renderRequestsList(filter = 'all') {
+      const container = document.getElementById('requestsStackList');
+      const emptyContainer = document.getElementById('requestsEmptyStateSlot');
+
+      if (State.showEmptyRequestsDemo || State.requests.length === 0) {
+        if (container) container.style.display = 'none';
+        if (emptyContainer) emptyContainer.style.display = 'block';
+        return;
+      }
+
+      if (container) container.style.display = 'flex';
+      if (emptyContainer) emptyContainer.style.display = 'none';
+
+      let filtered = State.requests;
+      if (filter === 'in_progress') filtered = State.requests.filter(r => r.statusCode === 'in_progress');
+      if (filter === 'resolved') filtered = State.requests.filter(r => r.statusCode === 'resolved' || r.statusCode === 'closed');
+
+      if (container) {
+        container.innerHTML = filtered.map(r => `
+          <div class="request-card" data-ticket-id="${r.id}">
+            <div class="request-card-header">
+              <span class="request-ref">${r.id}</span>
+              <span class="status-chip ${r.statusCode === 'resolved' ? 'resolved' : 'assigned'}">${r.status}</span>
+            </div>
+            <div class="request-card-title">${r.title}</div>
+            <div style="font-size:13px; color:var(--color-supporting-text);">${r.category} Â· ${r.device}</div>
+            <div class="request-card-footer">
+              <span>ðŸ“… ${r.date}</span>
+              <span style="color:var(--color-primary); font-weight:600;">Track Status â†’</span>
+            </div>
+          </div>
+        `).join('');
+
+        container.querySelectorAll('.request-card').forEach(card => {
+          card.addEventListener('click', () => {
+            this.openRequestTracker(card.dataset.ticketId);
+          });
+        });
+      }
+    },
+
+    renderFAQs(searchQuery = '', filterCategory = 'all') {
+      const listEl = document.getElementById('faqAccordionContainer');
+      if (!listEl) return;
+
+      let items = State.faqs;
+      if (filterCategory !== 'all') {
+        items = items.filter(f => f.category.toLowerCase().includes(filterCategory.toLowerCase()));
+      }
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        items = items.filter(f => f.question.toLowerCase().includes(q) || f.answer.toLowerCase().includes(q));
+      }
+
+      if (items.length === 0) {
+        listEl.innerHTML = `
+          <div style="text-align:center; padding:32px 16px; color:var(--color-supporting-text); font-size:14px;">
+            No FAQs matching your query. Need direct help? <button id="faqSubmitReqLink" style="color:var(--color-primary); text-decoration:underline; font-weight:600;">Submit a request</button>
+          </div>
+        `;
+        document.getElementById('faqSubmitReqLink')?.addEventListener('click', () => {
+          UI.navigateTo('view-request-form');
+        });
+        return;
+      }
+
+      listEl.innerHTML = items.map(f => `
+        <div class="faq-accordion-item" data-faq-id="${f.id}">
+          <button class="faq-trigger-btn" type="button">
+            <span>${f.question}</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content-drawer">
+            <div class="faq-body-text">
+              <p>${f.answer}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      listEl.querySelectorAll('.faq-trigger-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-accordion-item');
+          const isOpen = item.classList.contains('open');
+          listEl.querySelectorAll('.faq-accordion-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+    },
+
+    renderNotifications(filter = 'all') {
+      const listEl = document.getElementById('notificationsListStack');
+      if (!listEl) return;
+
+      let items = State.notifications;
+      if (filter === 'unread') {
+        items = items.filter(n => n.unread);
+      }
+
+      if (items.length === 0) {
+        listEl.innerHTML = `
+          <div style="text-align:center; padding:36px 16px; color:var(--color-supporting-text); font-size:14px;">
+            No notifications in this folder.
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = items.map(n => `
+        <div class="notification-card ${n.unread ? 'unread' : ''}" data-id="${n.id}">
+          <div class="notif-icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <div class="notif-content">
+            <div class="notif-title">${n.title}</div>
+            <div class="notif-desc">${n.desc}</div>
+            <div class="notif-timestamp">${n.timestamp}</div>
+          </div>
+        </div>
+      `).join('');
+
+      listEl.querySelectorAll('.notification-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const notif = State.notifications.find(n => n.id === card.dataset.id);
+          if (notif) {
+            notif.unread = false;
+            State.save();
+            UI.updateBadges();
+            card.classList.remove('unread');
+            if (notif.type === 'ticket') {
+              UI.openRequestTracker(notif.targetId);
+            } else if (notif.type === 'guide') {
+              UI.openGuidePreview(notif.targetId);
+            }
+          }
+        });
+      });
+    },
+
+    handleLiveSearch(query) {
+      const q = query.trim().toLowerCase();
+      const clearBtn = this.elements.searchClearBtn;
+      if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+
+      if (!q) {
+        this.elements.searchDropdown.classList.remove('visible');
+        return;
+      }
+
+      const matches = [];
+      State.guides.forEach(g => {
+        const inTitle = g.title.toLowerCase().includes(q);
+        const inTags = g.tags && g.tags.some(t => t.includes(q));
+        if (inTitle || inTags) {
+          matches.push({ type: 'guide', title: g.title, category: g.category.toUpperCase(), id: g.id });
+        }
+      });
+
+      if (matches.length > 0) {
+        this.elements.searchDropdown.innerHTML = matches.slice(0, 4).map(m => `
+          <div class="search-result-item" data-id="${m.id}">
+            <div>
+              <div class="search-result-title">${m.title}</div>
+              <div class="search-result-category">${m.category} GUIDE</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        `).join('');
+
+        this.elements.searchDropdown.querySelectorAll('.search-result-item').forEach(item => {
+          item.addEventListener('click', () => {
+            this.elements.searchDropdown.classList.remove('visible');
+            this.openGuidePreview(item.dataset.id);
+          });
+        });
+
+        this.elements.searchDropdown.classList.add('visible');
+      } else {
+        this.elements.searchDropdown.classList.remove('visible');
+      }
+    },
+
+    executeSearch(query) {
+      const q = query.trim();
+      if (!q) return;
+      this.elements.searchDropdown.classList.remove('visible');
+
+      const match = State.guides.find(g => 
+        g.title.toLowerCase().includes(q.toLowerCase()) || 
+        (g.tags && g.tags.some(t => t.includes(q.toLowerCase())))
+      );
+
+      if (match) {
+        this.openGuidePreview(match.id);
+      } else {
+        document.getElementById('emptySearchTermLabel').textContent = `"${q}"`;
+        document.getElementById('emptySearchInput').value = q;
+        this.navigateTo('view-search-empty');
+      }
+    },
+
+    // ==========================================================================
+    // Event Listeners Binding
+    // ==========================================================================
+    bindEvents() {
+      // 1. Presentation Bar Controls
+      document.querySelectorAll('.view-mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this.applyViewportMode(btn.dataset.mode);
+        });
+      });
+
+      document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
+        const nextTheme = State.theme === 'light' ? 'dark' : 'light';
+        this.applyTheme(nextTheme);
+      });
+
+      document.getElementById('resetDemoBtn')?.addEventListener('click', () => {
+        if (confirm('Reset prototype demo tickets and notifications back to initial state?')) {
+          State.resetData();
+          this.updateBadges();
+          this.renderHome();
+          this.renderRequestsList();
+          this.renderNotifications();
+          this.navigateTo('view-home');
+          this.showToast('Demo data successfully reset', 'info');
+        }
+      });
+
+      // 2. Header Brand click -> Return to Home
+      document.getElementById('headerBrandLogo')?.addEventListener('click', () => {
+        this.navigateTo('view-home');
+      });
+
+      // 3. Header Action Icons
+      document.getElementById('headerNotifBtn')?.addEventListener('click', () => {
+        this.navigateTo('view-notifications');
+      });
+
+      document.getElementById('headerProfilePill')?.addEventListener('click', () => {
+        this.navigateTo('view-profile');
+      });
+
+      // 4. Back Buttons (Breadcrumb navigation)
+      document.querySelectorAll('.back-button-link').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.target;
+          if (target) {
+            this.navigateTo(target);
+          } else {
+            this.goBack();
+          }
+        });
+      });
+
+      // 5. Bottom Navigation Bar Tabs
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.dataset.tab;
+          if (tab === 'home') this.navigateTo('view-home');
+          else if (tab === 'solutions') this.renderCategoryView('internet');
+          else if (tab === 'requests') {
+            this.renderRequestsList();
+            this.navigateTo('view-requests-list');
+          }
+          else if (tab === 'faqs') this.navigateTo('view-faqs');
+          else if (tab === 'profile') this.navigateTo('view-profile');
+        });
+      });
+
+      // 6. Home Category Cards
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const cat = card.dataset.cat;
+          this.renderCategoryView(cat);
+        });
+      });
+
+      // 7. Home Search Input
+      const searchInput = this.elements.searchBar;
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          this.handleLiveSearch(e.target.value);
+        });
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            this.executeSearch(e.target.value);
+          }
+        });
+      }
+
+      this.elements.searchClearBtn?.addEventListener('click', () => {
+        if (searchInput) {
+          searchInput.value = '';
+          this.handleLiveSearch('');
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+          this.elements.searchDropdown?.classList.remove('visible');
+        }
+      });
+
+      // 8. Empty Search Screen Handlers
+      document.getElementById('emptySearchInput')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          this.executeSearch(e.target.value);
+        }
+      });
+
+      document.getElementById('emptySearchRequestBtn')?.addEventListener('click', () => {
+        const query = document.getElementById('emptySearchInput')?.value || '';
+        this.populateRequestForm({
+          title: query ? `Assistance request: ${query}` : '',
+          description: query ? `I could not find a self-service solution for "${query}". Requesting assistance from the technical support team.` : ''
+        });
+      });
+
+      // 9. Secondary Request Buttons
+      document.getElementById('homeRequestCTABtn')?.addEventListener('click', () => {
+        this.populateRequestForm();
+      });
+      document.getElementById('faqBottomRequestBtn')?.addEventListener('click', () => {
+        this.populateRequestForm();
+      });
+
+      // 10. Guide Preview Start Button
+      document.getElementById('startTroubleshootingBtn')?.addEventListener('click', () => {
+        this.startWizard();
+      });
+
+      // 11. Wizard Navigation Stepper
+      document.getElementById('wizardPrevBtn')?.addEventListener('click', () => {
+        if (State.wizardStepIndex > 0) {
+          State.wizardStepIndex--;
+          this.renderWizardStep();
+        }
+      });
+
+      document.getElementById('wizardNextBtn')?.addEventListener('click', () => {
+        if (State.wizardStepIndex < State.currentGuide.steps.length - 1) {
+          State.wizardStepIndex++;
+          this.renderWizardStep();
+        } else {
+          document.querySelector('.resolution-feedback-card')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      // 12. Wizard Resolution Feedback Buttons
+      document.getElementById('wizardResolvedYesBtn')?.addEventListener('click', () => {
+        this.navigateTo('view-resolved');
+      });
+
+      document.getElementById('wizardResolvedNoBtn')?.addEventListener('click', () => {
+        this.populateRequestForm({
+          title: State.currentGuide.title,
+          category: State.currentCategory === 'internet' ? 'Internet & Connectivity' : 'Devices & Performance',
+          description: `I followed the step-by-step troubleshooting guide for "${State.currentGuide.title}" but the problem persists.`
+        });
+      });
+
+      // 13. Problem Resolved Screen
+      document.getElementById('resolvedBackHomeBtn')?.addEventListener('click', () => {
+        this.navigateTo('view-home');
+      });
+
+      document.getElementById('resolvedBrowseMoreBtn')?.addEventListener('click', () => {
+        this.renderCategoryView('internet');
+      });
+
+      document.querySelectorAll('.rating-star').forEach(star => {
+        star.addEventListener('click', () => {
+          const val = parseInt(star.dataset.val, 10);
+          document.querySelectorAll('.rating-star').forEach((s, idx) => {
+            s.classList.toggle('active', idx < val);
+          });
+          UI.showToast(`Thank you! Rated ${val} out of 5 stars.`, 'success');
+        });
+      });
+
+      // 14. Request Form Character Counter & Submission
+      const descInput = document.getElementById('formProblemDesc');
+      const charCounter = document.getElementById('formCharCounter');
+      descInput?.addEventListener('input', () => {
+        if (charCounter) charCounter.textContent = `${descInput.value.length} / 500 characters`;
+      });
+
+      const dropzone = document.getElementById('formFileDropzone');
+      const fileInput = document.getElementById('hiddenFileInput');
+      const fileListSlot = document.getElementById('formUploadedFilesList');
+
+      dropzone?.addEventListener('click', () => fileInput?.click());
+      dropzone?.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--color-primary)';
+      });
+      dropzone?.addEventListener('dragleave', () => {
+        dropzone.style.borderColor = 'var(--color-control-border)';
+      });
+      dropzone?.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--color-control-border)';
+        if (e.dataTransfer?.files?.length) {
+          handleFiles(e.dataTransfer.files);
+        }
+      });
+
+      fileInput?.addEventListener('change', () => {
+        if (fileInput.files?.length) handleFiles(fileInput.files);
+      });
+
+      function handleFiles(files) {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          State.uploadedFiles.push(file.name);
+        }
+        renderUploadedFiles();
+        UI.showToast('Screenshot attached successfully', 'info');
+      }
+
+      function renderUploadedFiles() {
+        if (!fileListSlot) return;
+        fileListSlot.innerHTML = State.uploadedFiles.map((name, idx) => `
+          <div class="uploaded-file-item">
+            <span>ðŸ“Ž ${name}</span>
+            <span class="file-remove-btn" data-idx="${idx}">âœ•</span>
+          </div>
+        `).join('');
+
+        fileListSlot.querySelectorAll('.file-remove-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = parseInt(btn.dataset.idx, 10);
+            State.uploadedFiles.splice(index, 1);
+            renderUploadedFiles();
+          });
+        });
+      }
+
+      document.getElementById('assistanceForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('formProblemTitle').value.trim();
+        const category = document.getElementById('formCategorySelect').value;
+        const device = document.getElementById('formDeviceSelect').value;
+        const location = document.getElementById('formLocationInput').value.trim();
+        const description = document.getElementById('formProblemDesc').value.trim();
+
+        if (!title || !description) {
+          alert('Please fill in both the problem title and description.');
+          return;
+        }
+
+        const stepsChecked = [];
+        document.querySelectorAll('input[name="stepsTried"]:checked').forEach(c => stepsChecked.push(c.value));
+
+        const submitBtn = document.getElementById('formSubmitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `Submitting...`;
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `Submit Assistance Request`;
+          UI.submitAssistanceRequest({
+            title,
+            category,
+            device,
+            location,
+            description,
+            stepsTried: stepsChecked
+          });
+        }, 500);
+      });
+
+      // 15. Student Message Reply to Technician in Status Tracker
+      document.getElementById('ticketReplyBtn')?.addEventListener('click', () => {
+        const input = document.getElementById('ticketReplyInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        const ticket = State.currentTicket;
+        if (!ticket) return;
+
+        const now = new Date();
+        const timeStr = `${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+        ticket.timeline.push({
+          time: `Today Â· ${timeStr}`,
+          title: 'Alex Morgan (Student)',
+          text: text,
+          isTech: false
+        });
+
+        input.value = '';
+        UI.renderTrackerTimeline(ticket);
+        UI.showToast('Message sent to technician', 'info');
+
+        setTimeout(() => {
+          ticket.timeline.push({
+            time: 'Just now',
+            title: 'Engr. R. Santos (ICT Support Team)',
+            text: 'Message received Alex. I am monitoring the signal telemetry at AP 204 now. Will update your ticket shortly.',
+            isTech: true
+          });
+          UI.renderTrackerTimeline(ticket);
+          UI.showToast('New update from technician Engr. R. Santos', 'info');
+          State.save();
+        }, 1600);
+      });
+
+      // 16. Requests List Tabs & Empty State Toggle
+      document.querySelectorAll('.requests-tab-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.requests-tab-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const filter = chip.dataset.filter;
+          if (filter === 'empty_demo') {
+            State.showEmptyRequestsDemo = true;
+            this.renderRequestsList();
+          } else {
+            State.showEmptyRequestsDemo = false;
+            this.renderRequestsList(filter);
+          }
+        });
+      });
+
+      document.getElementById('emptyStateCreateBtn')?.addEventListener('click', () => {
+        State.showEmptyRequestsDemo = false;
+        this.populateRequestForm();
+      });
+
+      // 17. FAQs Search & Filter Chips
+      document.querySelectorAll('.faq-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.faq-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const cat = chip.dataset.category;
+          const query = document.getElementById('faqsSearchInput')?.value || '';
+          this.renderFAQs(query, cat);
+        });
+      });
+
+      document.getElementById('faqsSearchInput')?.addEventListener('input', (e) => {
+        const activeChip = document.querySelector('.faq-chip.active');
+        const cat = activeChip ? activeChip.dataset.category : 'all';
+        this.renderFAQs(e.target.value, cat);
+      });
+
+      // 18. Notifications Mark All as Read & Filter Tabs
+      document.getElementById('markAllNotifsReadBtn')?.addEventListener('click', () => {
+        State.notifications.forEach(n => n.unread = false);
+        State.save();
+        this.updateBadges();
+        this.renderNotifications();
+        this.showToast('All notifications marked as read', 'info');
+      });
+
+      document.querySelectorAll('.notif-filter-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.notif-filter-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          this.renderNotifications(tab.dataset.filter);
+        });
+      });
+
+      // 19. Profile Settings Save
+      document.getElementById('saveSettingsBtn')?.addEventListener('click', () => {
+        this.showToast('Notification preferences saved successfully.', 'success');
+      });
+
+      document.getElementById('editProfileBtn')?.addEventListener('click', () => {
+        document.getElementById('editProfileModal')?.classList.add('open');
+      });
+      document.getElementById('closeProfileModalBtn')?.addEventListener('click', () => {
+        document.getElementById('editProfileModal')?.classList.remove('open');
+      });
+      document.getElementById('cancelProfileModalBtn')?.addEventListener('click', () => {
+        document.getElementById('editProfileModal')?.classList.remove('open');
+      });
+      document.getElementById('saveProfileModalBtn')?.addEventListener('click', () => {
+        const newPhone = document.getElementById('modalPhoneInput')?.value;
+        if (newPhone) {
+          document.getElementById('profilePhoneDisplay').textContent = newPhone;
+        }
+        document.getElementById('editProfileModal')?.classList.remove('open');
+        this.showToast('Profile information updated.', 'success');
+      });
+
+      // 20. Responsive Desktop Drag-Resize & Dimensions Controller
+      const appViewport = document.getElementById('appViewport');
+      const handleRight = document.getElementById('resizeHandleRight');
+      const handleBottom = document.getElementById('resizeHandleBottom');
+      const handleCorner = document.getElementById('resizeHandleCorner');
+
+      let isDragging = false;
+      let dragHandle = null;
+      let centerX = 0, topY = 0;
+
+      const startResize = (e, handleType) => {
+        if (State.viewportMode !== 'responsive' || !appViewport) return;
+        e.preventDefault();
+        isDragging = true;
+        dragHandle = handleType;
+        const rect = appViewport.getBoundingClientRect();
+        centerX = rect.left + rect.width / 2;
+        topY = rect.top;
+
+        document.body.classList.add('is-resizing');
+        window.addEventListener('mousemove', onResizeMove);
+        window.addEventListener('mouseup', stopResize);
+      };
+
+      const onResizeMove = (e) => {
+        if (!isDragging || !appViewport) return;
+        let newW = State.viewportWidth;
+        let newH = State.viewportHeight;
+
+        if (dragHandle === 'right' || dragHandle === 'corner') {
+          // Precise cursor tracking anchored around viewport center
+          const distFromCenter = e.clientX - centerX;
+          newW = distFromCenter * 2;
+        }
+
+        if (dragHandle === 'bottom' || dragHandle === 'corner') {
+          // Precise cursor tracking anchored from viewport top
+          newH = e.clientY - topY;
+        }
+
+        UI.setViewportDimensions(newW, newH, true);
+      };
+
+      const stopResize = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        dragHandle = null;
+        document.body.classList.remove('is-resizing');
+        window.removeEventListener('mousemove', onResizeMove);
+        window.removeEventListener('mouseup', stopResize);
+        State.save();
+      };
+
+      handleRight?.addEventListener('mousedown', (e) => startResize(e, 'right'));
+      handleBottom?.addEventListener('mousedown', (e) => startResize(e, 'bottom'));
+      handleCorner?.addEventListener('mousedown', (e) => startResize(e, 'corner'));
+
+      // Dimension Toolbar Inputs & Slider
+      const widthInput = document.getElementById('dimWidthInput');
+      const heightInput = document.getElementById('dimHeightInput');
+      const widthSlider = document.getElementById('dimWidthSlider');
+
+      widthInput?.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!isNaN(val)) UI.setViewportDimensions(val, State.viewportHeight, true);
+      });
+      widthInput?.addEventListener('change', () => State.save());
+
+      heightInput?.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!isNaN(val)) UI.setViewportDimensions(State.viewportWidth, val, true);
+      });
+      heightInput?.addEventListener('change', () => State.save());
+
+      widthSlider?.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!isNaN(val)) UI.setViewportDimensions(val, State.viewportHeight, true);
+      });
+      widthSlider?.addEventListener('change', () => State.save());
+
+      // Preset Buttons (1440, 1024, 768, 390)
+      document.querySelectorAll('.preset-pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const w = parseInt(btn.dataset.w, 10);
+          const h = parseInt(btn.dataset.h, 10);
+          if (w && h) {
+            UI.setViewportDimensions(w, h, true);
+            State.save();
+            UI.showToast(`Switched window to ${w} Ã— ${h} px`, 'info');
+          }
+        });
+      });
+
+      // Desktop Header Navigation Links (Exact 7 from Figma UI Masters)
+      document.querySelectorAll('.desktop-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const tab = link.dataset.tab;
+          if (tab === 'home') UI.navigateTo('view-home');
+          else if (tab === 'solutions') UI.renderCategoryView('internet');
+          else if (tab === 'request-assistance') UI.populateRequestForm();
+          else if (tab === 'requests') {
+            UI.renderRequestsList();
+            UI.navigateTo('view-requests-list');
+          }
+          else if (tab === 'faqs') UI.navigateTo('view-faqs');
+          else if (tab === 'notifications') UI.navigateTo('view-notifications');
+          else if (tab === 'profile') UI.navigateTo('view-profile');
+        });
+      });
+
+      // Desktop Search Submit Button in Main Search Bar
+      document.getElementById('mainSearchSubmitBtn')?.addEventListener('click', () => {
+        const val = document.getElementById('mainSearchBar')?.value || '';
+        UI.executeSearch(val);
+      });
+
+      // Desktop "Submit New Request" in My Requests Header
+      document.getElementById('headerNewRequestBtn')?.addEventListener('click', () => {
+        UI.populateRequestForm();
+      });
+
+      // Desktop Header Center Global Search
+      const desktopSearch = document.getElementById('desktopHeaderSearch');
+      if (desktopSearch) {
+        desktopSearch.addEventListener('input', (e) => {
+          UI.handleLiveSearch(e.target.value);
+        });
+        desktopSearch.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            UI.executeSearch(e.target.value);
+          }
+        });
+      }
+
+      // Desktop Header Right Actions (Mobile & Responsive Fallbacks)
+      document.getElementById('desktopNotifBtn')?.addEventListener('click', () => {
+        UI.navigateTo('view-notifications');
+      });
+      document.getElementById('desktopProfilePill')?.addEventListener('click', () => {
+        UI.navigateTo('view-profile');
+      });
+
+      // ResizeObserver for continuous responsive dynamics
+      if (window.ResizeObserver && appViewport) {
+        const ro = new ResizeObserver(entries => {
+          for (let entry of entries) {
+            const cr = entry.contentRect;
+            if (cr.width > 0) {
+              UI.updateResponsiveDynamics(cr.width);
+              if (State.viewportMode === 'responsive') {
+                const dimTag = document.getElementById('windowDimensionTag');
+                if (dimTag) dimTag.textContent = `${Math.round(cr.width)} Ã— ${Math.round(cr.height)} px`;
+              }
+            }
+          }
+        });
+        ro.observe(appViewport);
+      }
+    }
+  };
+
+  // Boot Application safely across standard, iframe, and Sandpack/Figma Code contexts
+  function bootApp() {
+    State.init();
+    UI.init();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootApp);
+  } else {
+    bootApp();
+  }
+})();
+
+  </script>
 </body>
 </html>
+
