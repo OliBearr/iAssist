@@ -430,8 +430,11 @@
       let tabKey = 'home';
       if (viewId === 'view-home' || viewId === 'view-search-empty') tabKey = 'home';
       else if (viewId.startsWith('view-category') || viewId.startsWith('view-guide') || viewId === 'view-resolved') tabKey = 'solutions';
+      else if (viewId === 'view-request-form') tabKey = 'request-assistance';
       else if (viewId.startsWith('view-request')) tabKey = 'requests';
       else if (viewId === 'view-faqs') tabKey = 'faqs';
+      else if (viewId === 'view-notifications') tabKey = 'notifications';
+      else if (viewId === 'view-profile') tabKey = 'profile';
 
       const matchBtn = document.querySelector(`.desktop-nav-link[data-tab="${tabKey}"]`);
       if (matchBtn) matchBtn.classList.add('active');
@@ -574,6 +577,15 @@
       appViewport.classList.toggle('is-desktop', isDesktop);
       appViewport.classList.toggle('is-tablet', isTablet);
       appViewport.classList.toggle('is-mobile', isMobile);
+
+      const bottomNav = document.querySelector('.app-bottom-nav');
+      if (bottomNav) {
+        if (isDesktop) {
+          bottomNav.style.setProperty('display', 'none', 'important');
+        } else {
+          bottomNav.style.removeProperty('display');
+        }
+      }
 
       this.syncDesktopNav(State.activeView);
     },
@@ -1598,18 +1610,32 @@
         });
       });
 
-      // Desktop Header Navigation Links
+      // Desktop Header Navigation Links (Exact 7 from Figma UI Masters)
       document.querySelectorAll('.desktop-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           const tab = link.dataset.tab;
           if (tab === 'home') UI.navigateTo('view-home');
           else if (tab === 'solutions') UI.renderCategoryView('internet');
+          else if (tab === 'request-assistance') UI.populateRequestForm();
           else if (tab === 'requests') {
             UI.renderRequestsList();
             UI.navigateTo('view-requests-list');
           }
           else if (tab === 'faqs') UI.navigateTo('view-faqs');
+          else if (tab === 'notifications') UI.navigateTo('view-notifications');
+          else if (tab === 'profile') UI.navigateTo('view-profile');
         });
+      });
+
+      // Desktop Search Submit Button in Main Search Bar
+      document.getElementById('mainSearchSubmitBtn')?.addEventListener('click', () => {
+        const val = document.getElementById('mainSearchBar')?.value || '';
+        UI.executeSearch(val);
+      });
+
+      // Desktop "Submit New Request" in My Requests Header
+      document.getElementById('headerNewRequestBtn')?.addEventListener('click', () => {
+        UI.populateRequestForm();
       });
 
       // Desktop Header Center Global Search
@@ -1625,7 +1651,7 @@
         });
       }
 
-      // Desktop Header Right Actions
+      // Desktop Header Right Actions (Mobile & Responsive Fallbacks)
       document.getElementById('desktopNotifBtn')?.addEventListener('click', () => {
         UI.navigateTo('view-notifications');
       });
